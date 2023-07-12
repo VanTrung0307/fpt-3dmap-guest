@@ -12,9 +12,34 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   const logo = "src/assets/Logo.png";
 
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    // Add scroll event listener
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const handleScroll = () => {
+    // Check the scroll position and update isScrolled state
+    if (window.scrollY > 0) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  };
+
   return (
     <nav
-      className={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 bg-primary`}
+      className={`${
+        styles.paddingX
+      } w-full flex items-center py-5 fixed top-0 z-20 ${
+        isScrolled ? `bg-primary` : `bg-dark`
+      }`}
     >
       <div className="w-full flex justify-between items-center max-w-7x1 ms-auto">
         <Link

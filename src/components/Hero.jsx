@@ -17,7 +17,7 @@ const Hero = () => {
 
         <div>
           <h1 className={`${styles.heroHeadText} text-white`}>
-            Hi, Welcome <span className="text-[#Ffb347]">FPTer HCM</span>
+            Chào mừng đến với <span className="text-[#Ffb347]">FPT HCM</span>
           </h1>
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
             FPT HCM đã tận dụng công nghệ Bản đồ 3D (FPT_HCM Adventures){" "}

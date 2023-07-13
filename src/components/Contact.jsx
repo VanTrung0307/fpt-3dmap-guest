@@ -18,9 +18,42 @@ const Contact = () => {
   });
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) => {};
+  const handleChange = (e) => {
+    const { name, value } = e.target;
 
-  const handleSubmit = (e) => {};
+    setForm({ ...form, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    emailjs.send("service_i0itwp9", "template_1lzkx8m", {
+      from_name: form.name,
+      to_name: "FPT3DMAP",
+      from_email: form.email,
+      to_email: "trunglelop95@gmail.com",
+      message: form.message,
+    },
+    'uega8TTF8HhCJ8wP3'
+    )
+    .then(() => {
+      setLoading(false)
+      alert('I will get back to you as soon as possible.');
+
+      setForm({
+        name: '',
+        email: '',
+        message: ''
+      })
+    }, (error) => {
+      setLoading(false)
+
+      console.log(error);
+
+      alert('Something went wrong.')
+    })
+  };
 
   return (
     <div className="xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden">

@@ -6,6 +6,7 @@ import App from "./../App";
 import { LoginPage } from "../components/LoginPage";
 import { RegisterPage } from "../components/RegisterPage";
 import Leaderboard from "../components/Leaderboard/Leaderboard"
+import ForgotPassword from "../components/ForgotPassword";
 
 export const router = createBrowserRouter([
   {
@@ -45,5 +46,9 @@ export const router = createBrowserRouter([
   {
     path: "leaderboard",
     element: <Leaderboard />,
+  },
+  {
+    path: "forgotPassword",
+    element: <ForgotPassword />,
   },
 ]);

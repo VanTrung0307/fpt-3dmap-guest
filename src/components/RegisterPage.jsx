@@ -98,15 +98,16 @@ export const RegisterPage = () => {
 
             <form className="my-8 text-sm" onSubmit={handleSignUp}>
               <div className="flex flex-col my-4">
-                <label htmlFor="name" className="text-gray-700">
-                  Name
+                <label htmlFor="username" className="text-gray-700">
+                  Username
                 </label>
                 <input
                   type="text"
-                  name="name"
-                  id="name"
-                  className="mt-2 p-2 border border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-300 rounded text-sm text-gray-900"
-                  placeholder="Enter your name"
+                  name="username"
+                  id="username"
+                  className="mt-2 p-2 border border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-300 rounded text-sm text-white-900"
+                  placeholder="Enter your username"
+                  required
                 />
               </div>
 
@@ -118,8 +119,57 @@ export const RegisterPage = () => {
                   type="email"
                   name="email"
                   id="email"
-                  className="mt-2 p-2 border border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-300 rounded text-sm text-gray-900"
+                  className="mt-2 p-2 border border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-300 rounded text-sm text-white-900"
                   placeholder="Enter your email"
+                  required
+                />
+              </div>
+
+              <div className="flex flex-col my-4">
+                <label htmlFor="gender" className="text-gray-700">
+                  Gender
+                </label>
+                <div className="flex items-center space-x-4">
+                  <div className="flex items-center">
+                    <input
+                      type="radio"
+                      name="gender"
+                      id="male"
+                      value="male"
+                      className="p-2 border border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-300 rounded text-sm text-gray-900"
+                      required
+                    />
+                    <label htmlFor="male" className="ml-2 text-gray-900">
+                      Male
+                    </label>
+                  </div>
+                  <div className="flex items-center">
+                    <input
+                      type="radio"
+                      name="gender"
+                      id="female"
+                      value="female"
+                      className="p-2 border border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-300 rounded text-sm text-white-900"
+                      required
+                    />
+                    <label htmlFor="female" className="ml-2 text-gray-900">
+                      Female
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-col my-4">
+                <label htmlFor="phone" className="text-gray-700">
+                  Phone Number
+                </label>
+                <input
+                  type="phone"
+                  name="phone"
+                  id="phone"
+                  className="mt-2 p-2 border border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-300 rounded text-sm text-white-900"
+                  placeholder="Enter your phone"
+                  required
                 />
               </div>
 
@@ -132,13 +182,15 @@ export const RegisterPage = () => {
                     type={showPassword ? "text" : "password"}
                     name="password"
                     id="password"
-                    className="flex-1 p-2 pr-10 border border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-300 rounded text-sm text-gray-900"
+                    className="flex-1 p-2 pr-10 border border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-300 rounded text-sm text-white-900"
                     placeholder="Enter your password"
+                    required
                   />
                   <button
                     onClick={togglePasswordVisibility}
                     type="button"
-                    className="absolute right-2 bg-transparent flex items-center justify-center text-gray-700"
+                    className="absolute right-2 bg-transparent flex items-center justify-center text-white-700"
+                    style={{ top: "50%", transform: "translateY(-50%)" }}
                   >
                     {showPassword ? (
                       <svg
@@ -168,7 +220,6 @@ export const RegisterPage = () => {
                         stroke="currentColor"
                         viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
-                        style={{ display: "none" }}
                       >
                         <path
                           strokeLinecap="round"
@@ -194,13 +245,15 @@ export const RegisterPage = () => {
                     type={showPassword ? "text" : "password"}
                     name="password_confirmation"
                     id="password_confirmation"
-                    className="flex-1 p-2 pr-10 border border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-300 rounded text-sm text-gray-900"
+                    className="flex-1 p-2 pr-10 border border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-300 rounded text-sm text-white-900"
                     placeholder="Enter your password again"
+                    required
                   />
                   <button
                     onClick={togglePasswordVisibility}
                     type="button"
-                    className="absolute right-2 bg-transparent flex items-center justify-center text-gray-700"
+                    className="absolute right-2 bg-transparent flex items-center justify-center text-white-700"
+                    style={{ top: "50%", transform: "translateY(-50%)" }}
                   >
                     {showPassword ? (
                       <svg
@@ -230,7 +283,6 @@ export const RegisterPage = () => {
                         stroke="currentColor"
                         viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
-                        style={{ display: "none" }}
                       >
                         <path
                           strokeLinecap="round"
@@ -252,6 +304,7 @@ export const RegisterPage = () => {
                   name="remember_me"
                   id="remember_me"
                   className="mr-2 focus:ring-0 rounded"
+                  required
                 />
                 <label htmlFor="remember_me" className="text-gray-700">
                   I accept the{" "}

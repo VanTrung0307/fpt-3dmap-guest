@@ -59,7 +59,7 @@ export const LoginPage = () => {
                   name=""
                   id=""
                   placeholder="Enter Email Address"
-                  className="w-full px-4 py-3 rounded-lg bg-gray-200 text-black mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none"
+                  className="w-full px-4 py-3 rounded-lg bg-gray-200 text-black mt-2 border focus:border-orange-500 focus:bg-white focus:outline-none"
                   autofocus
                   autocomplete
                   required
@@ -75,7 +75,7 @@ export const LoginPage = () => {
                     id=""
                     placeholder="Enter Password"
                     minLength="6"
-                    className="w-full px-4 py-3 rounded-lg bg-gray-200 text-black mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none"
+                    className="w-full px-4 py-3 rounded-lg bg-gray-200 text-black mt-2 border focus:border-orange-500 focus:bg-white focus:outline-none"
                     required
                   />
                   <button

@@ -100,6 +100,11 @@ const Navbar = () => {
             </ul>
           </div>
         </div>
+        <Link to={"/login"}>
+          <button className="w-[100px] relative inline-block text-white px-1 py-1 bg-gradient-to-r from-orange-600 to-orange-400 rounded-full text-[20px] no-underline shadow-md border-t border-gray-200 overflow-hidden">
+            Login
+          </button>
+        </Link>
       </div>
     </nav>
   );

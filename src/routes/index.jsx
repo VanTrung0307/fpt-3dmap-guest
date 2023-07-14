@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 import MainHome from "../canvas";
 import App from './../App';
+import { LoginPage } from "../components/LoginPage";
   
 export const router = createBrowserRouter(
     [
@@ -20,8 +21,18 @@ export const router = createBrowserRouter(
         },
         {
             path: 'main',
-            element: <MainHome />
-        }
+            element: <MainHome />,
+            children: [
+                {
+                    path: 'login',
+                    element: <LoginPage />
+                }
+            ]
+        },
+        {
+            path: 'login',
+            element: <LoginPage />,
+        },
     ]
   );
 

@@ -5,6 +5,7 @@ import MainHome from "../canvas";
 import App from "./../App";
 import { LoginPage } from "../components/LoginPage";
 import { RegisterPage } from "../components/RegisterPage";
+import Leaderboard from "../components/Leaderboard/Leaderboard"
 
 export const router = createBrowserRouter([
   {
@@ -40,5 +41,9 @@ export const router = createBrowserRouter([
   {
     path: "signup",
     element: <RegisterPage />,
+  },
+  {
+    path: "leaderboard",
+    element: <Leaderboard />,
   },
 ]);

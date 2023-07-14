@@ -6,12 +6,10 @@ import Home from "./pages/Home";
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <main className="app transition-all ease-in">
-        <Home />
-        <Customizer />
-      </main>
-    </BrowserRouter>
+    <main className="app transition-all ease-in">
+      <Home />
+      <Customizer />
+    </main>
   );
 };
 

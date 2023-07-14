@@ -39,13 +39,13 @@ export const RegisterPage = () => {
   return (
     <div className="w-full min-h-screen flex items-center justify-center">
       <button
-        className="absolute top-4 left-4 bg-black text-white rounded-full p-2 hover:bg-orange-900 transition duration-200"
+        className="absolute top-4 left-4 bg-black text-white rounded-full p-2 hover:bg-orange-500 transition duration-200"
         onClick={() => window.history.back()}
         title="Back"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6"
+          className="h-6 w-6 text-white hover:text-black"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -344,7 +344,9 @@ export const RegisterPage = () => {
                 height={24}
                 className="h-16 w-16 xl:h-20 xl:w-20 2xl:h-24 2xl:w-24 text-gray-100"
               />
-              <h1 className="text-3xl xl:text-4xl 2xl:text-5xl font-bold text-gray-100 tracking-wider">FPT_HCM 3DMAP</h1>
+              <h1 className="text-3xl xl:text-4xl 2xl:text-5xl font-bold text-gray-100 tracking-wider">
+                FPT_HCM 3DMAP
+              </h1>
             </div>
           </div>
         </div>

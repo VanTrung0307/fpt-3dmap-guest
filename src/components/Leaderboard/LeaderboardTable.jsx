@@ -6,6 +6,9 @@ const LeaderboardTable = () => {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-900">
       <div className="col-span-8">
+        <h1 className="flex items-center justify-center font-bold text-6xl custom-font">
+          Leaderboard
+        </h1>
         <div className="overflow-auto lg:overflow-visible">
           <table className="table text-gray-400 border-separate space-y-6 text-sm">
             <thead className="bg-gray-800 text-gray-500">

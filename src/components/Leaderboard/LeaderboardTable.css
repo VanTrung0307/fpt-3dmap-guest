@@ -1,22 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Cute+Font&display=swap');
+
+.custom-font {
+  font-family: 'Cute Font', cursive;
+}
+
 .table {
-    border-spacing: 0 15px;
-  }
-  
-  i {
-    font-size: 1rem !important;
-  }
-  
-  .table tr {
-    border-radius: 20px;
-  }
-  
-  tr td:nth-child(n + 4),
-  tr th:nth-child(n + 4) {
-    border-radius: 0 0.625rem 0.625rem 0;
-  }
-  
-  tr td:nth-child(1),
-  tr th:nth-child(1) {
-    border-radius: 0.625rem 0 0 0.625rem;
-  }
-  
+  border-spacing: 0 15px;
+}
+
+i {
+  font-size: 1rem !important;
+}
+
+.table tr {
+  border-radius: 20px;
+}
+
+tr td:nth-child(n + 4),
+tr th:nth-child(n + 4) {
+  border-radius: 0 0.625rem 0.625rem 0;
+}
+
+tr td:nth-child(1),
+tr th:nth-child(1) {
+  border-radius: 0.625rem 0 0 0.625rem;
+}

@@ -69,7 +69,11 @@ const Navbar = () => {
               </li>
             </>
           ))}
-          <li className="hover:text-white text-[18px] font-medium cursor-pointer">
+          <li
+            className={`${
+              active ? "text-white" : "text-secondary"
+            } hover:text-white text-[18px] font-medium cursor-pointer`}
+          >
             <a href="/leaderboard">Leaderboard</a>
           </li>
         </ul>

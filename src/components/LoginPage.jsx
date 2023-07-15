@@ -10,8 +10,8 @@ export const LoginPage = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleBackToLogin = () => {
-    window.location.href = "/login"; // Replace '/' with the desired URL of your main page
+  const handleBack = () => {
+    window.location.href = "/main"; // Replace '/' with the desired URL of your main page
   };
 
   return (
@@ -19,7 +19,7 @@ export const LoginPage = () => {
       <section className="flex flex-col md:flex-row h-screen items-center">
         <button
           className="absolute top-4 left-4 bg-white text-white rounded-full p-2 hover:bg-orange-500 transition duration-200"
-          onClick={handleBackToLogin}
+          onClick={handleBack}
           title="Back"
         >
           <svg

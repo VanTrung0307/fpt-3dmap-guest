@@ -23,9 +23,10 @@ const ConfirmResetPassword = () => {
   }, [password, confirmPassword]);
 
   const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
-    if (password.length >= 8 && password.length <= 15) {
-      setPassword(password.slice(0, 15));
+    const value = event.target.value.slice(0, 15);
+    setPassword(value);
+
+    if (value.length >= 8 && value.length <= 15) {
       setValidationError("");
     } else {
       setValidationError("Password must be between 8 and 15 characters.");
@@ -33,20 +34,19 @@ const ConfirmResetPassword = () => {
   };
 
   const handleConfirmPasswordChange = (event) => {
-    setConfirmPassword(event.target.value);
-    if (confirmPassword.length >= 8 && confirmPassword.length <= 15) {
-      setPassword(confirmPassword.slice(0, 15));
-      setValidationError("");
-    } else {
-      setValidationError("Password must be between 8 and 15 characters.");
-    }
+    setConfirmPassword(event.target.value.slice(0, 15));
   };
 
   const handleConfirmButtonClick = () => {
-    if (password === confirmPassword) {
+    const passwordRegex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$/;
+
+    if (password === confirmPassword && passwordRegex.test(password)) {
       window.location.href = "/login";
     } else {
-      setValidationError("Password does not match!");
+      setValidationError(
+        "Password does not match or does not meet the requirements!"
+      );
     }
   };
 

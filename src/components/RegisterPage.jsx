@@ -1,6 +1,8 @@
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
+import VerifyEmail from "./VerifyEmail";
+import ReactModal from "react-modal";
 
 export const RegisterPage = () => {
   const handleSignUp = (e) => {
@@ -33,14 +35,28 @@ export const RegisterPage = () => {
   };
 
   const handleExitToMainPage = () => {
-    window.location.href = "/main"; // Replace '/' with the desired URL of your main page
+    window.location.href = "/main";
+  };
+
+  const handleExitToLogin = () => {
+    window.location.href = "/login";
+  };
+
+  const [showModal, setShowModal] = useState(false);
+
+  const handleOpenModal = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
   };
 
   return (
     <div className="w-full min-h-screen flex items-center justify-center">
       <button
         className="absolute top-4 left-4 bg-black text-white rounded-full p-2 hover:bg-orange-500 transition duration-200"
-        onClick={() => window.history.back()}
+        onClick={handleExitToLogin}
         title="Back"
       >
         <svg
@@ -343,41 +359,78 @@ export const RegisterPage = () => {
             </div>
 
             {/* Additional content */}
-
-            <div className="text-sm">
-              <a
-                href="#"
-                className="flex items-center justify-center space-x-2 text-gray-600 my-2 py-2 bg-gray-100 hover:bg-gray-200 rounded"
-              >
-                <svg
-                  className="w-5 h-5"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 326667 333333"
-                  shape-rendering="geometricPrecision"
-                  text-rendering="geometricPrecision"
-                  image-rendering="optimizeQuality"
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
+            <div>
+              <div className="text-sm">
+                <a
+                  onClick={handleOpenModal}
+                  className="cursor-pointer flex items-center justify-center space-x-2 text-gray-600 my-2 py-2 bg-gray-100 hover:bg-gray-200 rounded"
                 >
-                  <path
-                    d="M326667 170370c0-13704-1112-23704-3518-34074H166667v61851h91851c-1851 15371-11851 38519-34074 54074l-311 2071 49476 38329 3428 342c31481-29074 49630-71852 49630-122593m0 0z"
-                    fill="#4285f4"
-                  ></path>
-                  <path
-                    d="M166667 333333c44999 0 82776-14815 110370-40370l-52593-40742c-14074 9815-32963 16667-57777 16667-44074 0-81481-29073-94816-69258l-1954 166-51447 39815-673 1870c27407 54444 83704 91852 148890 91852z"
-                    fill="#34a853"
-                  ></path>
-                  <path
-                    d="M71851 199630c-3518-10370-5555-21482-5555-32963 0-11482 2036-22593 5370-32963l-93-2209-52091-40455-1704 811C6482 114444 1 139814 1 166666s6482 52221 17777 74814l54074-41851m0 0z"
-                    fill="#fbbc04"
-                  ></path>
-                  <path
-                    d="M166667 64444c31296 0 52406 13519 64444 24816l47037-45926C249260 16482 211666 1 166667 1 101481 1 45185 37408 17777 91852l53889 41853c13520-40185 50927-69260 95001-69260m0 0z"
-                    fill="#ea4335"
-                  ></path>
-                </svg>
-                <span>Sign up with Google</span>
-              </a>
+                  <svg
+                    className="w-5 h-5"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 326667 333333"
+                    shape-rendering="geometricPrecision"
+                    text-rendering="geometricPrecision"
+                    image-rendering="optimizeQuality"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                  >
+                    <path
+                      d="M326667 170370c0-13704-1112-23704-3518-34074H166667v61851h91851c-1851 15371-11851 38519-34074 54074l-311 2071 49476 38329 3428 342c31481-29074 49630-71852 49630-122593m0 0z"
+                      fill="#4285f4"
+                    ></path>
+                    <path
+                      d="M166667 333333c44999 0 82776-14815 110370-40370l-52593-40742c-14074 9815-32963 16667-57777 16667-44074 0-81481-29073-94816-69258l-1954 166-51447 39815-673 1870c27407 54444 83704 91852 148890 91852z"
+                      fill="#34a853"
+                    ></path>
+                    <path
+                      d="M71851 199630c-3518-10370-5555-21482-5555-32963 0-11482 2036-22593 5370-32963l-93-2209-52091-40455-1704 811C6482 114444 1 139814 1 166666s6482 52221 17777 74814l54074-41851m0 0z"
+                      fill="#fbbc04"
+                    ></path>
+                    <path
+                      d="M166667 64444c31296 0 52406 13519 64444 24816l47037-45926C249260 16482 211666 1 166667 1 101481 1 45185 37408 17777 91852l53889 41853c13520-40185 50927-69260 95001-69260m0 0z"
+                      fill="#ea4335"
+                    ></path>
+                  </svg>
+                  <span>Sign up with Google</span>
+                </a>
+              </div>
+              {showModal && (
+                <ReactModal
+                  isOpen={true}
+                  onRequestClose={handleCloseModal}
+                  contentLabel="Modal"
+                  className="modal"
+                  overlayClassName="modal-overlay"
+                  shouldCloseOnOverlayClick={true}
+                  ariaHideApp={false} // Prevents app root element warning
+                >
+                  <div className="fixed top-0 left-0 right-0 bottom-0 bg-gray-900 bg-opacity-50 flex items-center justify-center">
+                    <div className="relative bg-blue-100 p-4 rounded-lg shadow-xl">
+                      <VerifyEmail />
+                      <button
+                        onClick={handleCloseModal}
+                        className="absolute top-0 right-0 -mt-3 -mr-3 bg-red-500 hover:bg-red-600 text-white rounded-full p-2 transition duration-300 ease-in-out"
+                      >
+                        <svg
+                          className="w-6 h-6"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M6 18L18 6M6 6l12 12"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </ReactModal>
+              )}
             </div>
           </div>
         </div>
@@ -403,8 +456,6 @@ export const RegisterPage = () => {
             </div>
           </div>
         </div>
-
-        {/* Background image section */}
       </div>
     </div>
   );

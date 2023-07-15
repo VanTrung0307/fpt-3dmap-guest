@@ -7,6 +7,7 @@ import { LoginPage } from "../components/LoginPage";
 import { RegisterPage } from "../components/RegisterPage";
 import Leaderboard from "../components/Leaderboard/Leaderboard"
 import ForgotPassword from "../components/ForgotPassword";
+import VerifyEmail from "../components/VerifyEmail";
 
 export const router = createBrowserRouter([
   {

@@ -23,8 +23,8 @@ import { Preload } from "@react-three/drei";
 
 import CanvasLoader from "../components/Loader";
 
-const Computers = ({ isMobile }) => {
-  const computer = useGLTF("./desktop_pc/scene.gltf");
+const FPT = ({ isMobile }) => {
+  const fpt = useGLTF("./map/fpt.gltf");
 
   return (
     <mesh>
@@ -39,16 +39,16 @@ const Computers = ({ isMobile }) => {
         shadow-mapSize={1024}
       />
       <primitive
-        object={computer.scene}
-        scale={isMobile ? 0.7 : 0.7}
+        object={fpt.scene}
+        scale={isMobile ? 0.05 : 0.055}
         position={isMobile ? [0, -3, -2.2] : [0, -3.25, -1.5]}
-        rotation={[-0.01, -0.2, -0.1]}
+        rotation={[-0.01, -0.2, 0]}
       />
     </mesh>
   );
 };
 
-const ComputersCanvasHome = () => {
+const FPTCanvasHome = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -85,7 +85,7 @@ const ComputersCanvasHome = () => {
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
         />
-        <Computers isMobile={isMobile} />
+        <FPT isMobile={isMobile} />
       </Suspense>
 
       <Preload all />
@@ -136,7 +136,7 @@ const Home = () => {
           </motion.section>
 
           <motion.section className="model" {...slideAnimation("right")}>
-            <ComputersCanvasHome />
+            <FPTCanvasHome />
           </motion.section>
         </>
       )}

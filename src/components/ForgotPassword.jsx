@@ -45,7 +45,10 @@ function ForgotPassword() {
             />
           </label>
 
-          <button className="w-full py-3 font-medium text-white bg-orange-600 hover:bg-orange-500 rounded-lg border-orange-500 hover:shadow inline-flex space-x-2 items-center justify-center">
+          <button
+            href="/reset"
+            className="w-full py-3 font-medium text-white bg-orange-600 hover:bg-orange-500 rounded-lg border-orange-500 hover:shadow inline-flex space-x-2 items-center justify-center"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

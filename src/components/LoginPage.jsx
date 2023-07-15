@@ -122,7 +122,7 @@ export const LoginPage = () => {
               <div className="text-right mt-2">
                 <a
                   href="/forgotPassword"
-                  className="text-sm font-semibold text-orange-500 hover:text-orange-700 focus:text-blue-700"
+                  className="text-sm font-semibold text-orange-500 hover:text-orange-700 focus:text-orange-700"
                 >
                   Forgot Password?
                 </a>

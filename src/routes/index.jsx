@@ -5,9 +5,10 @@ import MainHome from "../canvas";
 import App from "./../App";
 import { LoginPage } from "../components/LoginPage";
 import { RegisterPage } from "../components/RegisterPage";
-import Leaderboard from "../components/Leaderboard/Leaderboard"
+import Leaderboard from "../components/Leaderboard/Leaderboard";
 import ForgotPassword from "../components/ForgotPassword";
 import VerifyEmail from "../components/VerifyEmail";
+import ConfirmResetPassword from "../components/ConfirmResetPassword";
 
 export const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ export const router = createBrowserRouter([
         path: "signup",
         element: <RegisterPage />,
       },
+      {
+        path: "forgotPassword",
+        element: <ForgotPassword />,
+      },
     ],
   },
   {
@@ -51,5 +56,15 @@ export const router = createBrowserRouter([
   {
     path: "forgotPassword",
     element: <ForgotPassword />,
+    children: [
+      {
+        path: "reset",
+        element: <ConfirmResetPassword />,
+      },
+    ],
+  },
+  {
+    path: "reset",
+    element: <ConfirmResetPassword />,
   },
 ]);

@@ -1,7 +1,10 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { AuthContext } from "../authentication/AuthContext";
 
 export const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -11,7 +14,16 @@ export const LoginPage = () => {
   };
 
   const handleBack = () => {
-    window.location.href = "/main"; // Replace '/' with the desired URL of your main page
+    window.location.href = "/";
+  };
+
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const { authenLogin } = useContext(AuthContext);
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    const response = await authenLogin(username, password);
   };
 
   return (
@@ -55,17 +67,16 @@ export const LoginPage = () => {
               Log in to your account
             </h1>
 
-            <form className="mt-6" action="#" method="POST">
+            <form className="mt-6" onSubmit={handleLogin}>
               <div>
-                <label className="block text-black">Email Address</label>
+                <label className="block text-black">Username</label>
                 <input
-                  type="email"
-                  name=""
-                  id=""
-                  placeholder="Enter Email Address"
+                  type="text"
+                  name="username"
+                  placeholder="Enter Username"
                   className="w-full px-4 py-3 rounded-lg bg-gray-200 text-black mt-2 border focus:border-orange-500 focus:bg-white focus:outline-none"
-                  autofocus
-                  autocomplete
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
                   required
                 />
               </div>
@@ -75,11 +86,13 @@ export const LoginPage = () => {
                 <div className="relative">
                   <input
                     type={showPassword ? "text" : "password"}
-                    name=""
-                    id=""
+                    name="password"
                     placeholder="Enter Password"
-                    minLength="6"
+                    // minLength="8"
+                    // maxLength="15"
                     className="w-full px-4 py-3 rounded-lg bg-gray-200 text-black mt-2 border focus:border-orange-500 focus:bg-white focus:outline-none"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     required
                   />
                   <button
@@ -135,6 +148,7 @@ export const LoginPage = () => {
               >
                 Log In
               </button>
+              <ToastContainer />
             </form>
 
             <hr className="my-6 border-gray-300 w-full" />

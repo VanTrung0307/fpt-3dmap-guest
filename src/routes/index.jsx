@@ -2,13 +2,12 @@
 /* eslint-disable no-unused-vars */
 import { createBrowserRouter } from "react-router-dom";
 import MainHome from "../canvas";
-import App from "./../App";
+import ConfirmResetPassword from "../components/ConfirmResetPassword";
+import ForgotPassword from "../components/ForgotPassword";
+import Leaderboard from "../components/Leaderboard/Leaderboard";
 import { LoginPage } from "../components/LoginPage";
 import { RegisterPage } from "../components/RegisterPage";
-import Leaderboard from "../components/Leaderboard/Leaderboard";
-import ForgotPassword from "../components/ForgotPassword";
-import VerifyEmail from "../components/VerifyEmail";
-import ConfirmResetPassword from "../components/ConfirmResetPassword";
+import App from "./../App";
 
 export const router = createBrowserRouter([
   {
@@ -16,18 +15,8 @@ export const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: "dashboard",
+        path: "/",
         element: <MainHome />,
-      },
-    ],
-  },
-  {
-    path: "main",
-    element: <MainHome />,
-    children: [
-      {
-        path: "login",
-        element: <LoginPage />,
       },
     ],
   },

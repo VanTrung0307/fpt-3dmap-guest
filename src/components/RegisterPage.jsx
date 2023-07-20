@@ -1,15 +1,12 @@
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import VerifyEmail from "./VerifyEmail";
 import ReactModal from "react-modal";
+import { register } from "./../api/Account";
+import { getSchools } from "../api/Schools";
 
 export const RegisterPage = () => {
-  const handleSignUp = (e) => {
-    e.preventDefault();
-    // Handle sign up logic here
-  };
-
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
@@ -50,6 +47,63 @@ export const RegisterPage = () => {
 
   const handleCloseModal = () => {
     setShowModal(false);
+  };
+
+  const handleSignUp = (e) => {
+    e.preventDefault();
+
+    const username = e.target.username.value;
+    const email = e.target.email.value;
+    const gender = e.target.gender.value;
+    const phoneNumber = e.target.phone.value;
+    const password = e.target.password.value;
+    const confirmPassword = e.target.password_confirmation.value;
+    const fullname = e.target.fullname.value;
+
+    if (password !== confirmPassword) {
+      console.log("Passwords do not match");
+      return;
+    }
+
+    const userData = {
+      username,
+      email,
+      gender,
+      phoneNumber,
+      password,
+      fullname,
+    };
+
+    console.log(userData);
+
+    register(userData)
+      .then((response) => {
+        console.log("Sign up success:", response);
+      })
+      .catch((error) => {
+        console.error("Sign up error:", error);
+      });
+  };
+
+  const [schoolOptions, setSchoolOptions] = useState([]);
+  const [selectedSchool, setSelectedSchool] = useState("");
+
+  useEffect(() => {
+    const fetchSchoolOptions = async () => {
+      try {
+        const schools = await getSchools();
+        setSchoolOptions(schools);
+      } catch (error) {
+        console.error("Error fetching school options:", error);
+        setSchoolOptions([]);
+      }
+    };
+
+    fetchSchoolOptions();
+  }, []);
+
+  const handleSchoolChange = (event) => {
+    setSelectedSchool(event.target.value);
   };
 
   return (
@@ -125,6 +179,20 @@ export const RegisterPage = () => {
               </div>
 
               <div className="flex flex-col my-4">
+                <label htmlFor="fullname" className="text-gray-700">
+                  Fullname
+                </label>
+                <input
+                  type="text"
+                  name="fullname"
+                  id="fullname"
+                  className="mt-2 p-2 border border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-300 rounded text-sm text-white-900"
+                  placeholder="Enter your fullname"
+                  required
+                />
+              </div>
+
+              <div className="flex flex-col my-4">
                 <label htmlFor="email" className="text-gray-700">
                   Email Address
                 </label>
@@ -184,6 +252,29 @@ export const RegisterPage = () => {
                   placeholder="Enter your phone"
                   required
                 />
+              </div>
+
+              <div className="flex flex-col my-4">
+                <label htmlFor="school" className="text-gray-700">
+                  School
+                </label>
+                <select
+                  name="school"
+                  id="school"
+                  value={selectedSchool}
+                  onChange={handleSchoolChange}
+                  className="mt-2 p-2 border border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-300 rounded text-sm text-white-900"
+                  required
+                >
+                  <option value="" disabled>
+                    Select your school
+                  </option>
+                  {schoolOptions.map((school) => (
+                    <option key={school.id} value={school.id}>
+                      {school.name}
+                    </option>
+                  ))}
+                </select>
               </div>
 
               <div className="flex flex-col my-4">
@@ -311,32 +402,6 @@ export const RegisterPage = () => {
 
               {/* Other form fields */}
 
-              <div className="my-4 flex items-center">
-                <input
-                  type="checkbox"
-                  name="remember_me"
-                  id="remember_me"
-                  className="mr-2 focus:ring-0 rounded"
-                  required
-                />
-                <label htmlFor="remember_me" className="text-gray-700">
-                  I accept the{" "}
-                  <a
-                    href="#"
-                    className="text-orange-600 hover:text-orange-700 hover:underline"
-                  >
-                    terms
-                  </a>{" "}
-                  and{" "}
-                  <a
-                    href="#"
-                    className="text-orange-600 hover:text-orange-700 hover:underline"
-                  >
-                    privacy policy
-                  </a>
-                </label>
-              </div>
-
               <div className="my-4 flex items-center justify-end space-x-4">
                 <button
                   className="bg-orange-600 hover:bg-orange-700 rounded-lg px-8 py-2 text-gray-100 hover:shadow-xl transition duration-150 uppercase"
@@ -346,89 +411,6 @@ export const RegisterPage = () => {
                 </button>
               </div>
             </form>
-
-            {/* Social login buttons */}
-
-            <div className="flex items-center justify-between">
-              <div className="w-full h-[1px] bg-gray-300"></div>
-              <span className="text-sm uppercase mx-6 text-gray-400">Or</span>
-              <div className="w-full h-[1px] bg-gray-300"></div>
-            </div>
-
-            {/* Additional content */}
-            <div>
-              <div className="text-sm">
-                <a
-                  onClick={handleOpenModal}
-                  className="cursor-pointer flex items-center justify-center space-x-2 text-gray-600 my-2 py-2 bg-gray-100 hover:bg-gray-200 rounded"
-                >
-                  <svg
-                    className="w-5 h-5"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 326667 333333"
-                    shape-rendering="geometricPrecision"
-                    text-rendering="geometricPrecision"
-                    image-rendering="optimizeQuality"
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                  >
-                    <path
-                      d="M326667 170370c0-13704-1112-23704-3518-34074H166667v61851h91851c-1851 15371-11851 38519-34074 54074l-311 2071 49476 38329 3428 342c31481-29074 49630-71852 49630-122593m0 0z"
-                      fill="#4285f4"
-                    ></path>
-                    <path
-                      d="M166667 333333c44999 0 82776-14815 110370-40370l-52593-40742c-14074 9815-32963 16667-57777 16667-44074 0-81481-29073-94816-69258l-1954 166-51447 39815-673 1870c27407 54444 83704 91852 148890 91852z"
-                      fill="#34a853"
-                    ></path>
-                    <path
-                      d="M71851 199630c-3518-10370-5555-21482-5555-32963 0-11482 2036-22593 5370-32963l-93-2209-52091-40455-1704 811C6482 114444 1 139814 1 166666s6482 52221 17777 74814l54074-41851m0 0z"
-                      fill="#fbbc04"
-                    ></path>
-                    <path
-                      d="M166667 64444c31296 0 52406 13519 64444 24816l47037-45926C249260 16482 211666 1 166667 1 101481 1 45185 37408 17777 91852l53889 41853c13520-40185 50927-69260 95001-69260m0 0z"
-                      fill="#ea4335"
-                    ></path>
-                  </svg>
-                  <span>Sign up with Google</span>
-                </a>
-              </div>
-              {showModal && (
-                <ReactModal
-                  isOpen={true}
-                  onRequestClose={handleCloseModal}
-                  contentLabel="Modal"
-                  className="modal"
-                  overlayClassName="modal-overlay"
-                  shouldCloseOnOverlayClick={true}
-                  ariaHideApp={false} // Prevents app root element warning
-                >
-                  <div className="fixed top-0 left-0 right-0 bottom-0 bg-gray-900 bg-opacity-50 flex items-center justify-center">
-                    <div className="relative bg-blue-100 p-4 rounded-lg shadow-xl">
-                      <VerifyEmail />
-                      <button
-                        onClick={handleCloseModal}
-                        className="absolute top-0 right-0 -mt-3 -mr-3 bg-red-500 hover:bg-red-600 text-white rounded-full p-2 transition duration-300 ease-in-out"
-                      >
-                        <svg
-                          className="w-6 h-6"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M6 18L18 6M6 6l12 12"
-                          />
-                        </svg>
-                      </button>
-                    </div>
-                  </div>
-                </ReactModal>
-              )}
-            </div>
           </div>
         </div>
 

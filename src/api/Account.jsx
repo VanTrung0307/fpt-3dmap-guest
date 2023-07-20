@@ -1,4 +1,4 @@
-import axios from './../utils/axios'
+import axios from "./../utils/axios";
 
 const API_BASE_URL = "http://anhkiet-001-site1.htempurl.com/api/Accounts/";
 // const API_BASE_URL = `${baseURL}/Accounts/`;
@@ -35,11 +35,27 @@ export const callback = () => {
 };
 
 // POST /register
-export const register = async (userData) => {
+export const register = async (
+  username,
+  email,
+  gender,
+  phoneNumber,
+  password,
+  fullname
+) => {
+  const userData = {
+    username,
+    email,
+    gender,
+    phoneNumber,
+    password,
+    fullname,
+  };
+
   try {
     const response = await axios.post(`${API_BASE_URL}register`, userData);
-    console.log('sign up',response);
-    // return handleSuccess(response);
+    console.log("sign up", response.data);
+    return handleSuccess(response);
   } catch (error) {
     return handleBadRequest(error);
   }
@@ -47,7 +63,6 @@ export const register = async (userData) => {
 
 // POST /login
 export const login = async (username, password) => {
-
   const credentials = {
     username: username,
     password: password,

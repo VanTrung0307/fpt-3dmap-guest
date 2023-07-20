@@ -1,10 +1,8 @@
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
-import VerifyEmail from "./VerifyEmail";
-import ReactModal from "react-modal";
-import { register } from "./../api/Account";
 import { getSchools } from "../api/Schools";
+import { register } from "./../api/Account";
 
 export const RegisterPage = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -52,31 +50,15 @@ export const RegisterPage = () => {
   const handleSignUp = (e) => {
     e.preventDefault();
 
-    const username = e.target.username.value;
-    const email = e.target.email.value;
-    const gender = e.target.gender.value;
-    const phoneNumber = e.target.phone.value;
-    const password = e.target.password.value;
-    const confirmPassword = e.target.password_confirmation.value;
-    const fullname = e.target.fullname.value;
+    const formData = new FormData(e.target);
+    const username = formData.get("username");
+    const email = formData.get("email");
+    const gender = formData.get("gender").toString();
+    const phoneNumber = formData.get("phoneNumber");
+    const password = formData.get("password");
+    const fullname = formData.get("fullname");
 
-    if (password !== confirmPassword) {
-      console.log("Passwords do not match");
-      return;
-    }
-
-    const userData = {
-      username,
-      email,
-      gender,
-      phoneNumber,
-      password,
-      fullname,
-    };
-
-    console.log(userData);
-
-    register(userData)
+    register(username, email, gender, phoneNumber, password, fullname)
       .then((response) => {
         console.log("Sign up success:", response);
       })
@@ -241,15 +223,15 @@ export const RegisterPage = () => {
               </div>
 
               <div className="flex flex-col my-4">
-                <label htmlFor="phone" className="text-gray-700">
+                <label htmlFor="phoneNumber" className="text-gray-700">
                   Phone Number
                 </label>
                 <input
-                  type="phone"
-                  name="phone"
-                  id="phone"
+                  type="phoneNumber"
+                  name="phoneNumber"
+                  id="phoneNumber"
                   className="mt-2 p-2 border border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-300 rounded text-sm text-white-900"
-                  placeholder="Enter your phone"
+                  placeholder="Enter your phone number"
                   required
                 />
               </div>

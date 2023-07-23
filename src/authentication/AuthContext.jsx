@@ -3,12 +3,16 @@ import React, { createContext, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { toast } from "react-toastify";
 import { login } from "../api/Account";
+import { getRanks } from "../api/Rank";
+import { getPlayers } from "../api/Player";
 
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState("");
+  const [ranks, setRanks] = useState([]);
+  const [players, setPlayers] = useState([]);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -30,6 +34,8 @@ const AuthProvider = ({ children }) => {
         localStorage.setItem("username", username);
         setUser(username);
 
+        fetchRanksAndPlayers();
+
         toast.success("Login successful!", { autoClose: 3000 });
         window.location.href = "/";
       } else if (response.data.status === 400 && response.data.errors) {
@@ -49,8 +55,19 @@ const AuthProvider = ({ children }) => {
     localStorage.removeItem("token");
   };
 
+  const fetchRanksAndPlayers = async () => {
+    try {
+      const ranksResponse = await getRanks();
+      const playersResponse = await getPlayers();
+      setRanks(ranksResponse.data);
+      setPlayers(playersResponse.data);
+    } catch (error) {
+      console.log("Error fetching ranks and players:", error);
+    }
+  };
+
   return (
-    <AuthContext.Provider value={{ loggedIn, authenLogin, logout, user }}>
+    <AuthContext.Provider value={{ loggedIn, authenLogin, logout, user, ranks, players }}>
       {children}
     </AuthContext.Provider>
   );

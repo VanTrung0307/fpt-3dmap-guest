@@ -30,7 +30,7 @@ export const RegisterPage = () => {
   };
 
   const handleExitToMainPage = () => {
-    window.location.href = "/main";
+    window.location.href = "/";
   };
 
   const handleExitToLogin = () => {

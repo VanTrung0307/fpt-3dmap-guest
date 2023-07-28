@@ -58,7 +58,7 @@ const Navbar = () => {
         >
           <img src={logo} alt="logo" className="w-9 h-9 object-contain" />
           <p className="text-white text-[18px] font-bold cursor-pointer flex">
-            FPT &nbsp; <span className="sm:block hidden">3DMAP</span>
+            FPT_HCM &nbsp; <span className="sm:block hidden">Adventures</span>
           </p>
         </Link>
         <ul className="list-none hidden sm:flex flex-row gap-10">
@@ -81,7 +81,7 @@ const Navbar = () => {
                 active ? "text-white" : "text-secondary"
               } hover:text-white text-[18px] font-medium cursor-pointer`}
             >
-              Leaderboard
+              Bảng xếp hạng
             </li>
           </Link>
         </ul>

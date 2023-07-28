@@ -38,7 +38,12 @@ import download from './download.png'
 import logoShirt from './logo-tshirt.png'
 import stylishShirt from './stylish-tshirt.png'
 
+import Logo from './logo.png'
+import MobileLogo from './MobileLogo.png'
+
 export {
+  MobileLogo,
+  Logo,
   logo,
   backend,
   creator,

@@ -1,18 +1,21 @@
 /* eslint-disable no-unused-vars */
 import { Html, useProgress } from "@react-three/drei";
+import "../Loader/Loader.css";
 
 const Loader = () => {
   const { progress } = useProgress();
 
   return (
-    <Html>
-      <span className="canvas-load"></span>
+    <Html center>
+      <div className="loader-container">
+        <div className="loader-spinner"></div>
+      </div>
       <p
         style={{
           fontSize: "14",
-          color: "f1f1f1",
+          color: "#f1f1f1",
           fontWeight: "800",
-          marginTop: "40",
+          marginTop: "10px",
         }}
       >
         {progress.toFixed(2)}%

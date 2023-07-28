@@ -9,6 +9,7 @@ import Works from './Works';
 import Feedbacks from './Feedbacks';
 import Contact from './Contact';
 import CustomButton from './CustomButton';
+import LearderboardNavbar from '../components/Leaderboard/LearderboardNavbar'
 
 export {
   Hero,
@@ -23,5 +24,6 @@ export {
   BallCanvas, 
   FPTCanvas, 
   StarsCanvas,
-  CustomButton
+  CustomButton,
+  LearderboardNavbar
 }

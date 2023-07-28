@@ -3,12 +3,12 @@
 import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 
-import { styles } from "../styles";
-import { navLinks } from "../constants";
-import { menu, close } from "../assets";
-import { AuthContext } from "../authentication/AuthContext";
+import { menu, close } from "../../assets";
+import { AuthContext } from "../../authentication/AuthContext";
+import { styles } from "../../styles";
+import { navLinks } from "../../constants";
 
-const Navbar = () => {
+const LearderboardNavbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
   const logo = "src/assets/Logo.png";
@@ -63,27 +63,8 @@ const Navbar = () => {
         </Link>
         <ul className="list-none hidden sm:flex flex-row gap-10">
           {navLinks.map((link) => (
-            <>
-              <li
-                key={link.id}
-                className={`${
-                  active == link.title ? "text-white" : "text-secondary"
-                } hover:text-white text-[18px] font-medium cursor-pointer`}
-                onClick={() => setActive(link.title)}
-              >
-                <a href={`#${link.id}`}>{link.title}</a>
-              </li>
-            </>
+            <></>
           ))}
-          <Link to={"/leaderboard"}>
-            <li
-              className={`${
-                active ? "text-white" : "text-secondary"
-              } hover:text-white text-[18px] font-medium cursor-pointer`}
-            >
-              Leaderboard
-            </li>
-          </Link>
         </ul>
 
         <div className="hidden sm:inline-block">
@@ -297,4 +278,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default LearderboardNavbar;

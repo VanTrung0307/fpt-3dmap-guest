@@ -5,16 +5,18 @@ import React, { useContext, useState } from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../authentication/AuthContext";
+import { Link, useNavigate } from "react-router-dom";
 
 export const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
   const handleBack = () => {
-    window.location.href = "/";
+    navigate("/");
   };
 
   const [username, setUsername] = useState("");
@@ -24,6 +26,7 @@ export const LoginPage = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     const response = await authenLogin(username, password);
+    navigate("/");
   };
 
   return (
@@ -133,12 +136,11 @@ export const LoginPage = () => {
               </div>
 
               <div className="text-right mt-2">
-                <a
-                  href="/forgotPassword"
-                  className="text-sm font-semibold text-orange-500 hover:text-orange-700 focus:text-orange-700"
-                >
-                  Forgot Password?
-                </a>
+                <Link to={"/forgotPassword"}>
+                  <a className="text-sm font-semibold text-orange-500 hover:text-orange-700 focus:text-orange-700">
+                    Forgot Password?
+                  </a>
+                </Link>
               </div>
 
               <button
@@ -191,12 +193,11 @@ export const LoginPage = () => {
 
             <p className="mt-8 text-black ml-[70px]">
               Need an account?{" "}
-              <a
-                href="/signup"
-                className="text-orange-500 hover:text-orange-700 font-semibold"
-              >
-                Create an account
-              </a>
+              <Link to={"/signup"}>
+                <a className="text-orange-500 hover:text-orange-700 font-semibold">
+                  Create an account
+                </a>
+              </Link>
             </p>
           </div>
         </div>

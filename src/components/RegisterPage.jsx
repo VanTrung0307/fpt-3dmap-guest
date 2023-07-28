@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { getSchools } from "../api/Schools";
 import { register } from "./../api/Account";
+import { useNavigate } from "react-router-dom";
 
 export const RegisterPage = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -29,12 +30,14 @@ export const RegisterPage = () => {
     },
   };
 
+  const navigate = useNavigate();
+
   const handleExitToMainPage = () => {
-    window.location.href = "/";
+    navigate("/")
   };
 
   const handleExitToLogin = () => {
-    window.location.href = "/login";
+    navigate("/login")
   };
 
   const [showModal, setShowModal] = useState(false);
@@ -57,8 +60,9 @@ export const RegisterPage = () => {
     const phoneNumber = formData.get("phoneNumber");
     const password = formData.get("password");
     const fullname = formData.get("fullname");
+    const schoolId = formData.get("schoolId");
 
-    register(username, email, gender, phoneNumber, password, fullname)
+    register(username, email, gender, phoneNumber, password, fullname, schoolId)
       .then((response) => {
         console.log("Sign up success:", response);
       })
@@ -131,31 +135,21 @@ export const RegisterPage = () => {
       <div className="w-full h-screen flex items-center justify-center">
         <div className="w-full sm:w-5/6 md:w-2/3 lg:w-1/2 xl:w-1/3 2xl:w-1/4 h-full bg-white flex items-center justify-center">
           <div className="w-full px-12">
-            <h2 className="text-center text-2xl font-bold tracking-wide text-gray-800">
+            {/* <h2 className="text-center text-2xl font-bold tracking-wide text-gray-800 mt-[50px]">
               Sign Up
-            </h2>
-            <p className="text-center text-sm text-gray-600 mt-2">
-              Already have an account?{" "}
-              <a
-                href="/login"
-                className="text-orange-600 hover:text-orange-700 hover:underline"
-                title="Sign In"
-              >
-                Sign in here
-              </a>
-            </p>
+            </h2> */}
 
-            <form className="my-8 text-sm" onSubmit={handleSignUp}>
+            <form className="my-8 text-sm mt-[60px]" onSubmit={handleSignUp}>
               <div className="flex flex-col my-4">
-                <label htmlFor="username" className="text-gray-700">
-                  Username
+                <label htmlFor="email" className="text-gray-700">
+                  Email Address
                 </label>
                 <input
-                  type="text"
-                  name="username"
-                  id="username"
+                  type="email"
+                  name="email"
+                  id="email"
                   className="mt-2 p-2 border border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-300 rounded text-sm text-white-900"
-                  placeholder="Enter your username"
+                  placeholder="Enter your email"
                   required
                 />
               </div>
@@ -175,88 +169,17 @@ export const RegisterPage = () => {
               </div>
 
               <div className="flex flex-col my-4">
-                <label htmlFor="email" className="text-gray-700">
-                  Email Address
+                <label htmlFor="username" className="text-gray-700">
+                  Username
                 </label>
                 <input
-                  type="email"
-                  name="email"
-                  id="email"
+                  type="text"
+                  name="username"
+                  id="username"
                   className="mt-2 p-2 border border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-300 rounded text-sm text-white-900"
-                  placeholder="Enter your email"
+                  placeholder="Enter your username"
                   required
                 />
-              </div>
-
-              <div className="flex flex-col my-4">
-                <label htmlFor="gender" className="text-gray-700">
-                  Gender
-                </label>
-                <div className="flex items-center space-x-4">
-                  <div className="flex items-center">
-                    <input
-                      type="radio"
-                      name="gender"
-                      id="male"
-                      value="male"
-                      className="p-2 border border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-300 rounded text-sm text-gray-900"
-                      required
-                    />
-                    <label htmlFor="male" className="ml-2 text-gray-900">
-                      Male
-                    </label>
-                  </div>
-                  <div className="flex items-center">
-                    <input
-                      type="radio"
-                      name="gender"
-                      id="female"
-                      value="female"
-                      className="p-2 border border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-300 rounded text-sm text-white-900"
-                      required
-                    />
-                    <label htmlFor="female" className="ml-2 text-gray-900">
-                      Female
-                    </label>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex flex-col my-4">
-                <label htmlFor="phoneNumber" className="text-gray-700">
-                  Phone Number
-                </label>
-                <input
-                  type="phoneNumber"
-                  name="phoneNumber"
-                  id="phoneNumber"
-                  className="mt-2 p-2 border border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-300 rounded text-sm text-white-900"
-                  placeholder="Enter your phone number"
-                  required
-                />
-              </div>
-
-              <div className="flex flex-col my-4">
-                <label htmlFor="school" className="text-gray-700">
-                  School
-                </label>
-                <select
-                  name="school"
-                  id="school"
-                  value={selectedSchool}
-                  onChange={handleSchoolChange}
-                  className="mt-2 p-2 border border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-300 rounded text-sm text-white-900"
-                  required
-                >
-                  <option value="" disabled>
-                    Select your school
-                  </option>
-                  {schoolOptions.map((school) => (
-                    <option key={school.id} value={school.id}>
-                      {school.name}
-                    </option>
-                  ))}
-                </select>
               </div>
 
               <div className="flex flex-col my-4">
@@ -382,6 +305,77 @@ export const RegisterPage = () => {
                 </div>
               </div>
 
+              <div className="flex flex-col my-4">
+                <label htmlFor="gender" className="text-gray-700">
+                  Gender
+                </label>
+                <div className="flex items-center space-x-4">
+                  <div className="flex items-center">
+                    <input
+                      type="radio"
+                      name="gender"
+                      id="male"
+                      value="male"
+                      className="p-2 border border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-300 rounded text-sm text-gray-900"
+                      required
+                    />
+                    <label htmlFor="male" className="ml-2 text-gray-900">
+                      Male
+                    </label>
+                  </div>
+                  <div className="flex items-center">
+                    <input
+                      type="radio"
+                      name="gender"
+                      id="female"
+                      value="female"
+                      className="p-2 border border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-300 rounded text-sm text-white-900"
+                      required
+                    />
+                    <label htmlFor="female" className="ml-2 text-gray-900">
+                      Female
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-col my-4">
+                <label htmlFor="phoneNumber" className="text-gray-700">
+                  Phone Number
+                </label>
+                <input
+                  type="phoneNumber"
+                  name="phoneNumber"
+                  id="phoneNumber"
+                  className="mt-2 p-2 border border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-300 rounded text-sm text-white-900"
+                  placeholder="Enter your phone number"
+                  required
+                />
+              </div>
+
+              <div className="flex flex-col my-4">
+                <label htmlFor="schoolId" className="text-gray-700">
+                  School
+                </label>
+                <select
+                  name="schoolId"
+                  id="schoolId"
+                  value={selectedSchool}
+                  onChange={handleSchoolChange}
+                  className="mt-2 p-2 border border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-300 rounded text-sm text-white-900"
+                  required
+                >
+                  <option value="" disabled>
+                    Select your school
+                  </option>
+                  {schoolOptions.map((school) => (
+                    <option key={school.id} value={school.id}>
+                      {school.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
               {/* Other form fields */}
 
               <div className="my-4 flex items-center justify-end space-x-4">
@@ -411,9 +405,21 @@ export const RegisterPage = () => {
                 height={24}
                 className="h-16 w-16 xl:h-20 xl:w-20 2xl:h-24 2xl:w-24 text-gray-100"
               />
-              <h1 className="text-3xl xl:text-4xl 2xl:text-5xl font-bold text-gray-100 tracking-wider">
-                FPT_HCM 3DMAP
+              <h1 className="text-3xl xl:text-4xl 2xl:text-5xl font-bold text-gray-100 tracking-wider inline-block">
+                SIGN UP
               </h1>
+            </div>
+            <div>
+              <p className="text-center text-sm text-white-600 mt-2 font-bold flex-col inline-block text-[25px]">
+                Already have an account?{" "}
+                <a
+                  href="/login"
+                  className="text-orange-500 hover:text-orange-700 hover:underline"
+                  title="Sign In"
+                >
+                  Sign in here
+                </a>
+              </p>
             </div>
           </div>
         </div>

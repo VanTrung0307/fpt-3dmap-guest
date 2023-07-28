@@ -1,13 +1,19 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function ForgotPassword() {
+  const navigate = useNavigate();
+  const handleExitToLogin = () => {
+    navigate("/login");
+  };
+
   return (
     <div className="max-w-lg mx-auto my-10 mt-[200px] bg-white p-8 rounded-xl shadow shadow-slate-300 ">
       <button
         className="absolute top-4 left-4 bg-white text-white rounded-full p-2 hover:bg-orange-500 transition duration-200"
-        onClick={() => window.history.back()}
+        onClick={handleExitToLogin}
         title="Back"
       >
         <div className="flex items-center text-black hover:text-white">

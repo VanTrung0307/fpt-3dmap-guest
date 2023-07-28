@@ -41,7 +41,8 @@ export const register = async (
   gender,
   phoneNumber,
   password,
-  fullname
+  fullname,
+  schoolId
 ) => {
   const userData = {
     username,
@@ -50,6 +51,7 @@ export const register = async (
     phoneNumber,
     password,
     fullname,
+    schoolId,
   };
 
   try {

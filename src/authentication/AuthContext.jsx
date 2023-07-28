@@ -1,9 +1,8 @@
 /* eslint-disable no-unused-vars */
-import React, { createContext, useState, useEffect } from "react";
 import PropTypes from "prop-types";
+import React, { createContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { login } from "../api/Account";
-import { getRanks } from "../api/Rank";
 import { getPlayers } from "../api/Player";
 
 const AuthContext = createContext();
@@ -11,16 +10,21 @@ const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState("");
-  const [ranks, setRanks] = useState([]);
-  const [players, setPlayers] = useState([]);
+  const [userId, setUserId] = useState("");
+  const [players, setPlayers] = useState();
+  // const [userRank, setUserRank] = useState(null);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
     const username = localStorage.getItem("username");
-    if (token && username) {
+    const userId = localStorage.getItem("userId");
+    if (token && username && userId) {
       setLoggedIn(true);
       setUser(username);
+      setUserId(userId);
     }
+
+    fetchRanksAndPlayers(userId);
   }, []);
 
   const authenLogin = async (username, password) => {
@@ -34,10 +38,12 @@ const AuthProvider = ({ children }) => {
         localStorage.setItem("username", username);
         setUser(username);
 
-        fetchRanksAndPlayers();
+        console.log(response.data.userId);
+        localStorage.setItem("userId", response.data.userId);
+        await fetchRanksAndPlayers(response.data.userId);
+        // setUserId(response.data.userId);
 
         toast.success("Login successful!", { autoClose: 3000 });
-        window.location.href = "/";
       } else if (response.data.status === 400 && response.data.errors) {
         const errorMessage = Object.values(response.data.errors)[0][0];
         toast.error(errorMessage, { autoClose: 3000 });
@@ -55,19 +61,34 @@ const AuthProvider = ({ children }) => {
     localStorage.removeItem("token");
   };
 
-  const fetchRanksAndPlayers = async () => {
+  const fetchRanksAndPlayers = async (userId) => {
     try {
-      const ranksResponse = await getRanks();
       const playersResponse = await getPlayers();
-      setRanks(ranksResponse.data);
-      setPlayers(playersResponse.data);
+      if (Array.isArray(playersResponse)) {
+        const userRankIndex = playersResponse.find(
+          (userRank) => userRank.userId === userId
+        );
+        // console.log(userRankIndex);
+        setPlayers(userRankIndex);
+      } else {
+        console.log("Error fetching ranks and players: Invalid data format");
+      }
     } catch (error) {
       console.log("Error fetching ranks and players:", error);
     }
   };
 
   return (
-    <AuthContext.Provider value={{ loggedIn, authenLogin, logout, user, ranks, players }}>
+    <AuthContext.Provider
+      value={{
+        loggedIn,
+        authenLogin,
+        logout,
+        user,
+        fetchRanksAndPlayers,
+        players,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

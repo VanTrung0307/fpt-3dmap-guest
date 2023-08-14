@@ -1,6 +1,6 @@
 import axios from "./../utils/axios";
 
-const API_BASE_URL = "http://anhkiet-001-site1.htempurl.com/api/Accounts/";
+const API_BASE_URL = "https://anhkiet-001-site1.htempurl.com/api/Accounts/";
 // const API_BASE_URL = `${baseURL}/Accounts/`;
 
 const handleSuccess = (response) => {

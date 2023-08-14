@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://anhkiet-001-site1.htempurl.com/api/Users';
+const API_BASE_URL = 'https://anhkiet-001-site1.htempurl.com/api/Users';
 
 export const getUsers = () => {
   return axios.get(`${API_BASE_URL}`);

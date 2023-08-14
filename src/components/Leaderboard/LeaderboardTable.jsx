@@ -7,7 +7,7 @@ import { AuthContext } from "../../authentication/AuthContext";
 import { Link } from "react-router-dom";
 import Pagination from "./../Pagination";
 
-const ITEMS_PER_PAGE = 5;
+const ITEMS_PER_PAGE = 10;
 
 const LeaderboardTable = () => {
   const [rank, setRank] = useState([]);
@@ -16,13 +16,10 @@ const LeaderboardTable = () => {
   useEffect(() => {
     const fetchRankOptions = async () => {
       try {
-        const rankBoard = await getRanks();
         const playerBoard = await getPlayers();
-        setRank(rankBoard);
         setPlayer(playerBoard);
       } catch (error) {
         console.error("Error fetching school options:", error);
-        setRank([]);
         setPlayer([]);
       }
     };

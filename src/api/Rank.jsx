@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://anhkiet-001-site1.htempurl.com/api";
+const API_BASE_URL = "https://anhkiet-001-site1.htempurl.com/api";
 
 export const getRanks = async () => {
   try {

@@ -8,7 +8,7 @@ import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 import CanvasLoader from "../Loader/Loader";
 
 const FPT = ({ isMobile }) => {
-  const fpt = useGLTF("./map/fpt.gltf");
+  const fpt = useGLTF("/map/fpt.gltf");
 
   return (
     <mesh>

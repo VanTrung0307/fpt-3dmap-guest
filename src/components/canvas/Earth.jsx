@@ -1,16 +1,16 @@
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable no-unused-vars */
-import { Suspense } from "react";
+import { OrbitControls, useGLTF } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
+import { Suspense } from "react";
 
 import CanvasLoader from "../Loader/Loader";
 
 const Earth = () => {
-  const earth = useGLTF("./planet/scene.gltf", true);
+  const { scene } = useGLTF("./planet/planet.glb");
 
   return (
-    <primitive object={earth.scene} scale={2.5} position-y={0} rotation-y={0} />
+    <primitive object={scene} scale={2.5} position-y={0} rotation-y={0} />
   );
 };
 
@@ -24,7 +24,7 @@ const EarthCanvas = () => {
         fov: 45,
         near: 0.1,
         far: 200,
-        position: [-4, 3, 6]
+        position: [-4, 3, 6],
       }}
     >
       <Suspense fallback={<CanvasLoader />}>

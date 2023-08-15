@@ -2,74 +2,10 @@
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable no-unused-vars */
 import { motion } from "framer-motion";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
-
-import CanvasLoader from "./Loader/Loader";
-
 import { styles } from "../styles";
-import { Suspense, useEffect, useState } from "react";
-
-const FPTCanvas = ({ isMobile }) => {
-  const { scene } = useGLTF("/fpt.glb");
-
-  return (
-    <Canvas
-      frameloop="demand"
-      shadows
-      camera={{ position: [20, 3, 5], fov: 25 }}
-      gl={{ preserveDrawingBuffer: false }}
-    >
-      <Suspense fallback={<CanvasLoader />}>
-        <OrbitControls
-          enableZoom={true}
-          maxPolarAngle={Math.PI / 2}
-          minPolarAngle={Math.PI / 2}
-        />
-        <mesh>
-          <hemisphereLight intensity={0.15} groundColor="black" />
-          <pointLight intensity={1} />
-          <spotLight
-            position={[-20, 50, 10]}
-            angle={0.12}
-            penumbra={1}
-            intensity={1}
-            castShadow
-            shadow-mapSize={1024}
-          />
-          <primitive
-            object={scene}
-            scale={isMobile ? 0.05 : 0.055}
-            position={isMobile ? [0, -3, -2.2] : [0, -2.25, -0.5]}
-            rotation={[-0.01, -0.2, 0]}
-          />
-        </mesh>
-      </Suspense>
-
-      <Preload all />
-    </Canvas>
-  );
-};
+import FPTCanvas from "./canvas/FPT";
 
 const Hero = () => {
-
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 500px)");
-    setIsMobile(mediaQuery.matches);
-
-    const handleMediaQueryChange = (event) => {
-      setIsMobile(event.matches);
-    };
-
-    mediaQuery.addEventListener("change", handleMediaQueryChange);
-
-    return () => {
-      mediaQuery.removeEventListener("change", handleMediaQueryChange);
-    };
-  }, []);
-
   return (
     <section className="relative w-full h-screen mx-auto">
       <div
@@ -92,7 +28,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <FPTCanvas isMobile={isMobile} />
+      <FPTCanvas />
 
       <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">
         <a href="#about">

@@ -4,14 +4,14 @@ import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 
 import { styles } from "../styles";
-import { navLinks } from "../constants";
+import { navLinks, logoNavbar } from "../constants";
 import { menu, close } from "../assets";
 import { AuthContext } from "../authentication/AuthContext";
 
 const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
-  const logo = "src/assets/iconlogo.png";
+  // const logo = "src/assets/iconlogo.png";
 
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -56,7 +56,7 @@ const Navbar = () => {
             window.scrollTo(0, 0);
           }}
         >
-          <img src={logo} alt="logo" className="w-9 h-9 object-contain" />
+          <img src={logoNavbar.icon} alt="logo" className="w-9 h-9 object-contain" />
           <p className="text-white text-[18px] font-bold cursor-pointer flex">
             FPT &nbsp; <span className="sm:block hidden">3DMAP</span>
           </p>

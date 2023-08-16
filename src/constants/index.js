@@ -23,7 +23,12 @@ import {
   jobit,
   tripguide,
   threejs,
+  iconlogo,
 } from '../assets'
+
+export const logoNavbar = {
+  icon: iconlogo,
+}
 
 export const navLinks = [
   {

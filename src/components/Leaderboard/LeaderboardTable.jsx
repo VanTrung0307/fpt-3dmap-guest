@@ -1,10 +1,9 @@
 /* eslint-disable no-unused-vars */
-import React, { useState, useEffect, useContext } from "react";
-import "../Leaderboard/LeaderboardTable.css";
-import { getRanks } from "../../api/Rank";
+import React, { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { getPlayers } from "../../api/Player";
 import { AuthContext } from "../../authentication/AuthContext";
-import { Link } from "react-router-dom";
+import "../Leaderboard/LeaderboardTable.css";
 import Pagination from "./../Pagination";
 
 const ITEMS_PER_PAGE = 10;

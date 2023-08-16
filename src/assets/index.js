@@ -38,6 +38,8 @@ import download from './download.png'
 import logoShirt from './logo-tshirt.png'
 import stylishShirt from './stylish-tshirt.png'
 
+import iconlogo from './iconlogo.png'
+
 export {
   logo,
   backend,
@@ -73,4 +75,5 @@ export {
   download,
   logoShirt,
   stylishShirt,
+  iconlogo,
 }

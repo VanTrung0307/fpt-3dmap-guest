@@ -7,10 +7,10 @@ import { Suspense } from "react";
 import CanvasLoader from "../Loader/Loader";
 
 const Earth = () => {
-  const { scene } = useGLTF("./planet/planet.glb");
+  const planet = useGLTF("planet/planet.glb", true);
 
   return (
-    <primitive object={scene} scale={2.5} position-y={0} rotation-y={0} />
+    <primitive object={planet.scene} scale={2.5} position-y={0} rotation-y={0} />
   );
 };
 

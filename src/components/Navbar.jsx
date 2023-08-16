@@ -11,7 +11,7 @@ import { AuthContext } from "../authentication/AuthContext";
 const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
-  const logo = "src/assets/Logo.png";
+  // const logo = "src/assets/Logo.png";
 
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -56,7 +56,7 @@ const Navbar = () => {
             window.scrollTo(0, 0);
           }}
         >
-          <img src={logo} alt="logo" className="w-9 h-9 object-contain" />
+          <img src="src/assets/logo.png" alt="logo" className="w-9 h-9 object-contain" />
           <p className="text-white text-[18px] font-bold cursor-pointer flex">
             FPT &nbsp; <span className="sm:block hidden">3DMAP</span>
           </p>

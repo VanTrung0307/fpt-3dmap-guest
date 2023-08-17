@@ -64,14 +64,14 @@ export const register = async (
 };
 
 // POST /login
-export const login = async (username, password) => {
+export const login = async (email, passcode) => {
   const credentials = {
-    username: username,
-    password: password,
+    email: email,
+    passcode: passcode,
   };
 
   try {
-    const response = await axios.post(`${API_BASE_URL}login`, credentials);
+    const response = await axios.post(`${API_BASE_URL}loginunity`, credentials);
     console.log(response.data.data);
     return handleSuccess(response.data);
   } catch (error) {

@@ -19,13 +19,13 @@ export const LoginPage = () => {
     navigate("/");
   };
 
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [passcode, setPasscode] = useState("");
   const { authenLogin } = useContext(AuthContext);
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    const response = await authenLogin(username, password);
+    const response = await authenLogin(email, passcode);
     navigate("/");
   };
 
@@ -72,30 +72,30 @@ export const LoginPage = () => {
 
             <form className="mt-6" onSubmit={handleLogin}>
               <div>
-                <label className="block text-black">Username</label>
+                <label className="block text-black">Email</label>
                 <input
                   type="text"
-                  name="username"
-                  placeholder="Enter Username"
+                  name="email"
+                  placeholder="Enter Email"
                   className="w-full px-4 py-3 rounded-lg bg-gray-200 text-black mt-2 border focus:border-orange-500 focus:bg-white focus:outline-none"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   required
                 />
               </div>
 
               <div className="mt-4">
-                <label className="block text-black">Password</label>
+                <label className="block text-black">Passcode</label>
                 <div className="relative">
                   <input
                     type={showPassword ? "text" : "password"}
-                    name="password"
-                    placeholder="Enter Password"
+                    name="passcode"
+                    placeholder="Enter Passcode"
                     // minLength="8"
                     // maxLength="15"
                     className="w-full px-4 py-3 rounded-lg bg-gray-200 text-black mt-2 border focus:border-orange-500 focus:bg-white focus:outline-none"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    value={passcode}
+                    onChange={(e) => setPasscode(e.target.value)}
                     required
                   />
                   <button
@@ -154,42 +154,6 @@ export const LoginPage = () => {
             </form>
 
             <hr className="my-6 border-gray-300 w-full" />
-
-            <button
-              type="button"
-              className="w-full block bg-white hover:bg-gray-100 focus:bg-gray-100 text-gray-900 font-semibold rounded-lg px-4 py-3 border border-gray-300"
-            >
-              <div className="flex items-center justify-center">
-                <svg
-                  class="w-5 h-5"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 326667 333333"
-                  shape-rendering="geometricPrecision"
-                  text-rendering="geometricPrecision"
-                  image-rendering="optimizeQuality"
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                >
-                  <path
-                    d="M326667 170370c0-13704-1112-23704-3518-34074H166667v61851h91851c-1851 15371-11851 38519-34074 54074l-311 2071 49476 38329 3428 342c31481-29074 49630-71852 49630-122593m0 0z"
-                    fill="#4285f4"
-                  ></path>
-                  <path
-                    d="M166667 333333c44999 0 82776-14815 110370-40370l-52593-40742c-14074 9815-32963 16667-57777 16667-44074 0-81481-29073-94816-69258l-1954 166-51447 39815-673 1870c27407 54444 83704 91852 148890 91852z"
-                    fill="#34a853"
-                  ></path>
-                  <path
-                    d="M71851 199630c-3518-10370-5555-21482-5555-32963 0-11482 2036-22593 5370-32963l-93-2209-52091-40455-1704 811C6482 114444 1 139814 1 166666s6482 52221 17777 74814l54074-41851m0 0z"
-                    fill="#fbbc04"
-                  ></path>
-                  <path
-                    d="M166667 64444c31296 0 52406 13519 64444 24816l47037-45926C249260 16482 211666 1 166667 1 101481 1 45185 37408 17777 91852l53889 41853c13520-40185 50927-69260 95001-69260m0 0z"
-                    fill="#ea4335"
-                  ></path>
-                </svg>
-                <span className="ml-4">Log in with Google</span>
-              </div>
-            </button>
 
             <p className="mt-8 text-black ml-[70px]">
               Need an account?{" "}

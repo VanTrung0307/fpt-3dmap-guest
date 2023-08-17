@@ -11,7 +11,6 @@ import { AuthContext } from "../authentication/AuthContext";
 const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
-  // const logo = "src/assets/iconlogo.png";
 
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -37,7 +36,7 @@ const Navbar = () => {
     setOpen((prevState) => !prevState);
   };
 
-  const { loggedIn, user, logout } = useContext(AuthContext);
+  const { loggedIn, logout, nickname } = useContext(AuthContext);
 
   return (
     <nav
@@ -106,13 +105,13 @@ const Navbar = () => {
                   >
                     <div className="w-10 h-10 rounded-full overflow-hidden border-2 dark:border-white border-gray-900">
                       <img
-                        src="https://images.unsplash.com/photo-1610397095767-84a5b4736cbd?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
+                        src="https://www.linux.org/data/avatars/o/32/32035.jpg?1565435149"
                         alt=""
                         className="w-full h-full object-cover"
                       />
                     </div>
                     <div className="font-semibold dark:text-white text-gray-900 text-lg">
-                      <div className="cursor-pointer">{user}</div>
+                      <div className="cursor-pointer">{nickname}</div>
                     </div>
                   </div>
                   {open && (
@@ -260,7 +259,7 @@ const Navbar = () => {
                 {loggedIn ? (
                   <div className="relative inline-block">
                     <button className="w-[100px] relative inline-block text-white px-1 py-1 bg-gradient-to-r from-orange-600 to-orange-400 rounded-full text-[20px] no-underline shadow-md border-t border-gray-200 overflow-hidden">
-                      {user} <span className="ml-2">&#9662;</span>
+                      {nickname} <span className="ml-2">&#9662;</span>
                     </button>
                     <div className="absolute right-0 mt-2 w-[150px] bg-white border rounded-lg shadow-lg">
                       <ul className="py-2">

@@ -10,38 +10,41 @@ const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState("");
-  const [userId, setUserId] = useState("");
-  const [players, setPlayers] = useState();
+  const [studentId, setStudentId] = useState("");
+  const [players, setPlayers] = useState("");
+  const [nickname, setNickname] = useState("");
   // const [userRank, setUserRank] = useState(null);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    const username = localStorage.getItem("username");
-    const userId = localStorage.getItem("userId");
-    if (token && username && userId) {
+    const email = localStorage.getItem("email");
+    const studentId = localStorage.getItem("studentId");
+    const nickname = localStorage.getItem("nickname")
+    if (token && email && studentId && nickname) {
       setLoggedIn(true);
-      setUser(username);
-      setUserId(userId);
+      setUser(email);
+      setStudentId(studentId);
+      setNickname(nickname)
     }
 
-    fetchRanksAndPlayers(userId);
+    fetchRanksAndPlayers(studentId);
   }, []);
 
-  const authenLogin = async (username, password) => {
+  const authenLogin = async (email, passcode) => {
     try {
-      const response = await login(username, password);
+      const response = await login(email, passcode);
 
       if (JSON.stringify(response.data) !== "{}") {
         localStorage.setItem("token", response.data.token);
         setLoggedIn(true);
 
-        localStorage.setItem("username", username);
-        setUser(username);
+        localStorage.setItem("email", email);
+        setUser(email);
 
-        console.log(response.data.userId);
-        localStorage.setItem("userId", response.data.userId);
-        await fetchRanksAndPlayers(response.data.userId);
-        // setUserId(response.data.userId);
+        localStorage.setItem("nickname", response.data.nickname);
+
+        localStorage.setItem("studentId", response.data.studentId);
+        await fetchRanksAndPlayers(response.data.studentId);
 
         toast.success("Login successful!", { autoClose: 3000 });
       } else if (response.data.status === 400 && response.data.errors) {
@@ -66,7 +69,7 @@ const AuthProvider = ({ children }) => {
       const playersResponse = await getPlayers();
       if (Array.isArray(playersResponse)) {
         const userRankIndex = playersResponse.find(
-          (userRank) => userRank.userId === userId
+          (userRank) => userRank.studentId === userId
         );
         // console.log(userRankIndex);
         setPlayers(userRankIndex);
@@ -85,6 +88,7 @@ const AuthProvider = ({ children }) => {
         authenLogin,
         logout,
         user,
+        nickname,
         fetchRanksAndPlayers,
         players,
       }}

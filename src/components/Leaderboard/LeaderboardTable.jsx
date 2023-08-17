@@ -36,13 +36,13 @@ const LeaderboardTable = () => {
   const offset = currentPage * ITEMS_PER_PAGE;
   const paginatedPlayer = sortedPlayer.slice(offset, offset + ITEMS_PER_PAGE);
 
-  const { loggedIn, user, players } = useContext(AuthContext);
+  const { loggedIn, players, nickname } = useContext(AuthContext);
   console.log(players);
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-900">
       <div className="col-span-12">
-        <h1 className="flex items-center justify-center font-bold text-6xl custom-font">
+        <h1 className="flex items-center justify-center font-bold text-6xl custom-font mt-[70px]">
           Leaderboard
         </h1>
         <div className="overflow-auto lg:overflow-visible">
@@ -103,32 +103,41 @@ const LeaderboardTable = () => {
           />
         </div>
 
-        <div>{user}</div>
         {loggedIn ? (
           <>
             <h1 className="font-bold text-6xl custom-font">Your rank:</h1>
 
-            <tr className="bg-gray-800">
-              <td className="p-3">
-                <div className="flex align-items-center">
-                  <img
-                    className="rounded-full h-12 w-12 object-cover"
-                    src="https://images.unsplash.com/photo-1423784346385-c1d4dac9893a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
-                    alt="unsplash image"
-                  />
-                </div>
-              </td>
-              <td className="p-3">
-                {players?.totalPoint ? players.totalPoint : "-"}
-              </td>
-              {/* <td className="p-3 font-bold">{user}</td> */}
-              <td className="p-3 font-bold">{players?.nickname ?? ""}</td>
-              <td className="p-3">
-                <span className="bg-red-400 text-gray-50 rounded-md px-2">
-                  {players?.totalTime ? players.totalTime : "0"}
-                </span>
-              </td>
-            </tr>
+            <table className="table flex text-gray-400 border-separate space-y-6 text-sm">
+              <thead className="bg-gray-800 text-gray-500">
+                <tr>
+                  <th className="p-3">Rank</th>
+                  <th className="p-3 text-left">Point</th>
+                  <th className="p-3 text-left">Username</th>
+                  <th className="p-3 text-left">Time Recorded</th>
+                </tr>
+              </thead>
+
+              <tr className="bg-gray-800">
+                <td className="p-3">
+                  <div className="flex align-items-center">
+                    <img
+                      className="rounded-full h-12 w-12 object-cover"
+                      src="https://i.pinimg.com/736x/69/c4/46/69c4468eddacd590f1231e4de934ded1.jpg"
+                      alt="unsplash image"
+                    />
+                  </div>
+                </td>
+                <td className="p-3">
+                  {players?.totalPoint ? players.totalPoint : "-"}
+                </td>
+                <td className="p-3 font-bold">{nickname}</td>
+                <td className="p-3">
+                  <span className="bg-red-400 text-gray-50 rounded-md px-2">
+                    {players?.totalTime ? players.totalTime : "0"}
+                  </span>
+                </td>
+              </tr>
+            </table>
           </>
         ) : (
           <>

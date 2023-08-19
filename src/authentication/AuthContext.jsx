@@ -9,9 +9,11 @@ const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   const [loggedIn, setLoggedIn] = useState(false);
+  const [user, setUser] = useState("");
   const [studentId, setStudentId] = useState("");
   const [players, setPlayers] = useState("");
   const [nickname, setNickname] = useState("");
+  // const [userRank, setUserRank] = useState(null);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -20,7 +22,9 @@ const AuthProvider = ({ children }) => {
     const nickname = localStorage.getItem("nickname");
     if (token && email && studentId && nickname) {
       setLoggedIn(true);
+      setUser(email);
       setStudentId(studentId);
+      setNickname(nickname);
     }
 
     fetchRanksAndPlayers(studentId);
@@ -33,11 +37,14 @@ const AuthProvider = ({ children }) => {
       if (JSON.stringify(response.data) !== "{}") {
         localStorage.setItem("token", response.data.token);
         setLoggedIn(true);
+        localStorage.setItem("email", response.data.email);
+
+        localStorage.setItem("nickname", response.data.nickname);
+        console.log("nickname", response.data.nickname);
 
         localStorage.setItem("studentId", response.data.studentId);
         await fetchRanksAndPlayers(response.data.studentId);
 
-        localStorage.setItem("nickname", response.data.nickname);
         toast.success("Login successful!", { autoClose: 3000 });
       } else if (response.data.status === 400 && response.data.errors) {
         const errorMessage = Object.values(response.data.errors)[0][0];
@@ -51,6 +58,7 @@ const AuthProvider = ({ children }) => {
   };
 
   const logout = () => {
+    setUser(false)
     setNickname(null);
     setLoggedIn(false);
     localStorage.removeItem("token");
@@ -63,6 +71,7 @@ const AuthProvider = ({ children }) => {
         const userRankIndex = playersResponse.find(
           (userRank) => userRank.studentId === userId
         );
+        // console.log(userRankIndex);
         setPlayers(userRankIndex);
       } else {
         console.log("Error fetching ranks and players: Invalid data format");
@@ -78,6 +87,7 @@ const AuthProvider = ({ children }) => {
         loggedIn,
         authenLogin,
         logout,
+        user,
         nickname,
         fetchRanksAndPlayers,
         players,

@@ -37,6 +37,7 @@ const LeaderboardTable = () => {
   const paginatedPlayer = sortedPlayer.slice(offset, offset + ITEMS_PER_PAGE);
 
   const { loggedIn, players, nickname } = useContext(AuthContext);
+  console.log("nickname leader", nickname);
   console.log(players);
 
   return (
@@ -105,6 +106,8 @@ const LeaderboardTable = () => {
 
         {loggedIn ? (
           <>
+          {nickname}
+          
             <h1 className="font-bold text-6xl custom-font">Your rank:</h1>
 
             <table className="table flex text-gray-400 border-separate space-y-6 text-sm">

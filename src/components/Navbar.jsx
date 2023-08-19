@@ -36,7 +36,7 @@ const Navbar = () => {
     setOpen((prevState) => !prevState);
   };
 
-  const { loggedIn, logout, nickname } = useContext(AuthContext);
+  const { loggedIn, logout, user, nickname } = useContext(AuthContext);
 
   return (
     <nav
@@ -55,7 +55,11 @@ const Navbar = () => {
             window.scrollTo(0, 0);
           }}
         >
-          <img src={logoNavbar.icon} alt="logo" className="w-9 h-9 object-contain" />
+          <img
+            src={logoNavbar.icon}
+            alt="logo"
+            className="w-9 h-9 object-contain"
+          />
           <p className="text-white text-[18px] font-bold cursor-pointer flex">
             FPT &nbsp; <span className="sm:block hidden">3DMAP</span>
           </p>

@@ -6,6 +6,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../authentication/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
+import { loginImg } from "../constants";
 
 export const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -55,7 +56,7 @@ export const LoginPage = () => {
 
         <div className="bg-indigo-600 hidden lg:block w-full md:w-1/2 xl:w-2/3 h-screen">
           <img
-            src="src/assets/loginbg.jpg"
+            src={loginImg.img}
             alt="login-background"
             className="w-full h-full object-cover"
           />

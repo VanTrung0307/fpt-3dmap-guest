@@ -24,10 +24,15 @@ import {
   tripguide,
   threejs,
   iconlogo,
+  loginBg,
 } from '../assets'
 
 export const logoNavbar = {
   icon: iconlogo,
+}
+
+export const loginImg = {
+  img: loginBg,
 }
 
 export const navLinks = [

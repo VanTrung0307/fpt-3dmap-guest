@@ -39,6 +39,7 @@ import logoShirt from './logo-tshirt.png'
 import stylishShirt from './stylish-tshirt.png'
 
 import iconlogo from './iconlogo.png'
+import loginBg from './loginbg.jpg'
 
 export {
   logo,
@@ -76,4 +77,5 @@ export {
   logoShirt,
   stylishShirt,
   iconlogo,
+  loginBg
 }

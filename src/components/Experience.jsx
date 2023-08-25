@@ -101,12 +101,10 @@ const ExperienceCard = ({ experience, isLast }) => {
               key={`experience-point-${index}`}
               className="text-white-100 text-[14px] pl-1 tracking-wider"
             >
-              <Link to="/#contact">
               <span>{point.replace("Liên hệ", "")}</span>
-                <a className="text-orange-500 hover:text-orange-700 font-semibold">
+                <a href="#contact" className="text-orange-500 hover:text-orange-700 font-semibold">
                   Liên hệ
                 </a>
-              </Link>
             </li>
           );
         }  else {

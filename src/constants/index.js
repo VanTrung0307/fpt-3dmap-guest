@@ -25,7 +25,6 @@ import {
   threejs,
   iconlogo,
   loginBg,
-  Logo,
   MobileLogo,
 } from '../assets'
 
@@ -132,7 +131,7 @@ const technologies = [
 const experiences = [
   {
     title: 'Web FPT_HCM Adventures',
-    icon: Logo,
+    icon: iconlogo,
     iconBg: '#383E56',
     step: 'Bước 1',
     points: [
@@ -156,7 +155,7 @@ const experiences = [
   },
   {
     title: 'Web FPT_HCM Adventures',
-    icon: Logo,
+    icon: iconlogo,
     iconBg: '#383E56',
     step: 'Bước 3 - Cuối cùng',
     points: [

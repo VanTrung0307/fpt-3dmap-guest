@@ -1,7 +1,7 @@
 import {
   mobile,
   backend,
-  creator,
+  // creator,
   web,
   javascript,
   typescript,
@@ -15,16 +15,18 @@ import {
   git,
   figma,
   docker,
-  meta,
-  starbucks,
-  tesla,
-  shopify,
+  // meta,
+  // starbucks,
+  // tesla,
+  // shopify,
   carrent,
   jobit,
   tripguide,
   threejs,
   iconlogo,
   loginBg,
+  Logo,
+  MobileLogo,
 } from '../assets'
 
 export const logoNavbar = {
@@ -38,35 +40,38 @@ export const loginImg = {
 export const navLinks = [
   {
     id: 'about',
-    title: 'About',
+    title: 'Giới thiệu',
   },
   {
     id: 'work',
-    title: 'Work',
+    title: 'Hướng dẫn',
   },
   {
     id: 'contact',
-    title: 'Contact',
+    title: 'Liên hệ',
   },
 ]
 
 const services = [
   {
-    title: 'Web Developer',
+    title: 'Web FPT_HCM Adventures',
+    detail: 'Tìm hiểu rõ hơn về ứng dụng thực tế ảo để sinh viên khám phá, thi đấu và kiểm tra thứ hạng trên bảng xếp hạng',
     icon: web,
   },
   {
-    title: 'React Native Developer',
+    title: 'Android FPT_HCM Adventures',
+    detail: 'Chiêm ngưỡng cảnh quan tuyệt đẹp và tham gia các nhiệm vụ thú vị để giành những phần quà hấp dẫn thông qua thực tế ảo 3D',
     icon: mobile,
   },
   {
-    title: 'Backend Developer',
+    title: 'Admin Web FPT_HCM Adventures',
+    detail: 'Quản lý, nâng cấp và bảo trì server giúp cho học sinh có những trải nghiệm tốt nhất',
     icon: backend,
   },
-  {
-    title: 'Content Creator',
-    icon: creator,
-  },
+  // {
+  //   title: 'Content Creator',
+  //   icon: creator,
+  // },
 ]
 
 const technologies = [
@@ -126,57 +131,53 @@ const technologies = [
 
 const experiences = [
   {
-    title: 'React.js Developer',
-    company_name: 'Starbucks',
-    icon: starbucks,
+    title: 'Web FPT_HCM Adventures',
+    icon: Logo,
     iconBg: '#383E56',
-    date: 'March 2020 - April 2021',
+    step: 'Bước 1',
     points: [
-      'Developing and maintaining web applications using React.js and other related technologies.',
-      'Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.',
-      'Implementing responsive design and ensuring cross-browser compatibility.',
-      'Participating in code reviews and providing constructive feedback to other developers.',
+      'Khám phá, hiểu rõ hơn về ứng dụng FPT_HCM 3D Map Campus sử dụng công nghệ Unity là như thế nào. Ngoài ra còn biết được bảng xếp hạng Leaderboard vào mỗi sự kiện mà các học sinh cấp 3 đã tham gia FPT_HCM Adventures!',
+      'Đặc biệt những học sinh đến từ trường cấp 3 có tham gia ứng dụng thực tế ảo 3D Map sẽ đăng ký tại đây',
+      'Sau khi đăng ký (email tồn tại), sẽ nhận được tin trong email đó để xác thực',
+      'Cuối cùng, khi xác thực thành công, bạn sẽ nhận được mã QR để tải ứng dụng về điện thoại của bạn (chỉ có trên Android)',
     ],
   },
   {
-    title: 'React Native Developer',
-    company_name: 'Tesla',
-    icon: tesla,
+    title: 'Android FPT_HCM Adventures',
+    icon: MobileLogo,
     iconBg: '#E6DEDD',
-    date: 'Jan 2021 - Feb 2022',
+    step: 'Bước 2',
     points: [
-      'Developing and maintaining web applications using React.js and other related technologies.',
-      'Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.',
-      'Implementing responsive design and ensuring cross-browser compatibility.',
-      'Participating in code reviews and providing constructive feedback to other developers.',
+      'Sau khi tải thành công và chọn ứng dụng, bạn sẽ đăng nhập tài khoản mà bạn trước đó đã tạo. Bạn có thể đăng nhập bằng cả 2 cách đều được!',
+      'Mong bạn trước khi tham gia FPT_HCM Adventures, chắc chắn rằng bạn đã đọc và hiểu Hệ thống và Cách chơi',
+      'Cuối cùng, bắt đầu cuộc hành trình và tìm kiếm những điểm số để nhận được phần quà hấp dẫn!',
+      // 'Participating in code reviews and providing constructive feedback to other developers.',
     ],
   },
   {
-    title: 'Web Developer',
-    company_name: 'Shopify',
-    icon: shopify,
+    title: 'Web FPT_HCM Adventures',
+    icon: Logo,
     iconBg: '#383E56',
-    date: 'Jan 2022 - Jan 2023',
+    step: 'Bước 3 - Cuối cùng',
     points: [
-      'Developing and maintaining web applications using React.js and other related technologies.',
-      'Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.',
-      'Implementing responsive design and ensuring cross-browser compatibility.',
-      'Participating in code reviews and providing constructive feedback to other developers.',
+      'Sau khi sự kiện kết thúc, những học sinh - hay gọi là Player đã tham gia sẽ có thể xem bảng xếp hạng Leaderboard để biết mình ở vị trí nào. Nếu trong top 5 sẽ nhận được phần quà (vị trí càng cao thì giá trị phần quà càng lớn)',
+      'Sau đó, những học sinh nhận được giải thưởng sẽ chờ Ban tổ chức gọi hay nhắn tin tại email trước đó đã đăng ký để nhận được phần quà nhé!',
+      'Cuối cùng, cảm ơn các bạn đã quan tâm và theo dõi ứng dụng của chúng tôi <3. Mong các bạn có những trải nghiệm thật tốt, vui vẻ và nếu có đóng góp phát triển thì các bạn hãy mạnh dạn gửi tin nhắn cho đội ngũ tại mục Liên hệ',
     ],
   },
-  {
-    title: 'Full stack Developer',
-    company_name: 'Meta',
-    icon: meta,
-    iconBg: '#E6DEDD',
-    date: 'Jan 2023 - Present',
-    points: [
-      'Developing and maintaining web applications using React.js and other related technologies.',
-      'Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.',
-      'Implementing responsive design and ensuring cross-browser compatibility.',
-      'Participating in code reviews and providing constructive feedback to other developers.',
-    ],
-  },
+  // {
+  //   title: 'Full stack Developer',
+  //   company_name: 'Meta',
+  //   icon: meta,
+  //   iconBg: '#E6DEDD',
+  //   date: 'Jan 2023 - Present',
+  //   points: [
+  //     'Developing and maintaining web applications using React.js and other related technologies.',
+  //     'Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.',
+  //     'Implementing responsive design and ensuring cross-browser compatibility.',
+  //     'Participating in code reviews and providing constructive feedback to other developers.',
+  //   ],
+  // },
 ]
 
 const testimonials = [

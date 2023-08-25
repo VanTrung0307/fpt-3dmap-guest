@@ -40,8 +40,12 @@ import stylishShirt from './stylish-tshirt.png'
 
 import iconlogo from './iconlogo.png'
 import loginBg from './loginbg.jpg'
+import Logo from './logo.png'
+import MobileLogo from './MobileLogo.png'
 
 export {
+  MobileLogo,
+  Logo,
   logo,
   backend,
   creator,

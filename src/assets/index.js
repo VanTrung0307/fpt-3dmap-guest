@@ -42,7 +42,7 @@ import iconlogo from './iconlogo.png'
 import loginBg from './loginbg.jpg'
 import MobileLogo from './MobileLogo.png'
 
-import QRCode from './QRCode_Download.png'
+import QRCode from './QRLogo.png'
 
 export {
   MobileLogo,

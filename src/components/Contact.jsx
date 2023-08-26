@@ -62,8 +62,8 @@ const Contact = () => {
         variants={slideIn("left", "tween", 0.2, 1)}
         className="flex-[0.75] bg-black-100 p-8 rounded-2xl"
       >
-        <p className={styles.sectionSubText}>Get in touch</p>
-        <h3 className={styles.sectionHeadText}>Contact.</h3>
+        <p className={styles.sectionSubText}>Hãy liên lạc với chúng tôi</p>
+        <h3 className={styles.sectionHeadText}>Liên hệ</h3>
 
         <form
           ref={formRef}
@@ -71,35 +71,35 @@ const Contact = () => {
           className="mt-12 flex flex-col gap-8"
         >
           <label className="flex flex-col">
-            <span className="text-white font-medium mb-4">Your Name</span>
+            <span className="text-white font-medium mb-4">Tên của bạn</span>
             <input
               type="text"
               name="name"
               value={form.name}
               onChange={handleChange}
-              placeholder="What's your name?"
+              placeholder="Tên của bạn ?"
               className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
             />
           </label>
           <label className="flex flex-col">
-            <span className="text-white font-medium mb-4">Your Email</span>
+            <span className="text-white font-medium mb-4">Email của bạn</span>
             <input
               type="email"
               name="email"
               value={form.email}
               onChange={handleChange}
-              placeholder="What's your email?"
+              placeholder="Email của bạn là?"
               className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
             />
           </label>
           <label className="flex flex-col">
-            <span className="text-white font-medium mb-4">Your Message</span>
+            <span className="text-white font-medium mb-4">Tin nhắn của bạn</span>
             <textarea
               rows="7"
               name="message"
               value={form.message}
               onChange={handleChange}
-              placeholder="What do you want to say?"
+              placeholder="Bạn có những câu hỏi hay những lời nói muốn chia sẻ với chúng tôi?"
               className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
             />
           </label>
@@ -108,7 +108,7 @@ const Contact = () => {
             type="submit"
             className="bg-tertiary py-3 px-8 outline-none w-fit text-white font-bold shadow-md shadow-primary rounded-xl"
           >
-            {loading ? "Sending..." : "Send"}
+            {loading ? "Đang gửi..." : "Gửi"}
           </button>
         </form>
       </motion.div>
@@ -119,7 +119,7 @@ const Contact = () => {
       >
         {/* <EarthCanvas /> */}
         <img
-          src={QRCodeDownload.icon} // Update the path to your QR Code image
+          src={QRCodeDownload.icon} 
           alt="QR Code"
           className="w-full h-full object-contain"
         />

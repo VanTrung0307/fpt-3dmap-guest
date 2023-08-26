@@ -26,7 +26,7 @@ import {
   iconlogo,
   loginBg,
   MobileLogo,
-  QRCode
+  QRCode,
 } from '../assets'
 
 export const QRCodeDownload = {
@@ -49,6 +49,10 @@ export const navLinks = [
   {
     id: 'work',
     title: 'Hướng dẫn',
+  },
+  {
+    id: 'system',
+    title: 'Cách chơi & Hệ thống',
   },
   {
     id: 'contact',
@@ -140,10 +144,9 @@ const experiences = [
     iconBg: '#383E56',
     step: 'Bước 1',
     points: [
-      'Khám phá, hiểu rõ hơn về ứng dụng FPTU HCM3D Map Campus sử dụng công nghệ Unity là như thế nào. Ngoài ra còn biết được bảng xếp hạng Leaderboard vào mỗi sự kiện mà các học sinh cấp 3 đã tham gia FPTU HCMAdventures!',
-      'Đặc biệt những học sinh đến từ trường cấp 3 có tham gia ứng dụng thực tế ảo 3D Map sẽ đăng ký tại đây',
-      'Sau khi đăng ký (email tồn tại), sẽ nhận được tin trong email đó để xác thực',
-      'Cuối cùng, khi xác thực thành công, bạn sẽ nhận được mã QR để tải ứng dụng về điện thoại của bạn (chỉ có trên Android)',
+      'Khám phá, hiểu rõ hơn về ứng dụng FPTU HCM3D Map Campus sử dụng công nghệ Unity là như thế nào. Ngoài ra còn biết được bảng xếp hạng Leaderboard vào mỗi sự kiện mà các học sinh cấp 3 đã tham gia FPTU HCM Adventures!',
+      'Trước khi tham gia ứng dụng FPTU HCM Adventures Mobile, khuyến khích nên xem video hướng dẫn về Cách chơi & Hệ thống',
+      'Cuối cùng, scan QR Code bằng điện thoại để tải ứng dụng về điện thoại của bạn (chỉ có trên Android) tại mục Liên hệ',
     ],
   },
   {
@@ -152,9 +155,9 @@ const experiences = [
     iconBg: '#E6DEDD',
     step: 'Bước 2',
     points: [
-      'Sau khi tải thành công và chọn ứng dụng, bạn sẽ đăng nhập tài khoản mà bạn trước đó đã tạo. Bạn có thể đăng nhập bằng cả 2 cách đều được!',
-      'Mong bạn trước khi tham gia FPTU HCMAdventures, chắc chắn rằng bạn đã đọc và hiểu Hệ thống và Cách chơi',
-      'Cuối cùng, bắt đầu cuộc hành trình và tìm kiếm những điểm số để nhận được phần quà hấp dẫn!',
+      'Sau khi tải thành công và mở ứng dụng, bạn sẽ đăng nhập tài khoản gồm email và passcode mà trước đó trường học đã cung cấp',
+      'Một lần nữa, mong bạn trước khi tham gia FPTU HCM Adventures, chắc chắn rằng bạn đã xem video hướng dẫn về Cách chơi & Hệ thống',
+      'Cuối cùng, bắt đầu cuộc hành trình và tìm kiếm những điểm số và cố gắng nằm trong top 10 để nhận được phần quà hấp dẫn!',
       // 'Participating in code reviews and providing constructive feedback to other developers.',
     ],
   },
@@ -164,9 +167,9 @@ const experiences = [
     iconBg: '#383E56',
     step: 'Bước 3 - Cuối cùng',
     points: [
-      'Sau khi sự kiện kết thúc, những học sinh - hay gọi là Player đã tham gia sẽ có thể xem bảng xếp hạng Leaderboard để biết mình ở vị trí nào. Nếu trong top 5 sẽ nhận được phần quà (vị trí càng cao thì giá trị phần quà càng lớn)',
+      'Sau khi sự kiện kết thúc, những bạn nào đã tham gia sẽ có thể xem bảng xếp hạng Leaderboard để biết mình ở vị trí nào. Nếu trong top 10 sẽ nhận được phần quà (vị trí càng cao thì giá trị phần quà càng lớn). Nếu muốn biết bản thân đang ở vị trí nào thì hãy đăng nhập tại đây',
       'Sau đó, những học sinh nhận được giải thưởng sẽ chờ Ban tổ chức gọi hay nhắn tin tại email trước đó đã đăng ký để nhận được phần quà nhé!',
-      'Cuối cùng, cảm ơn các bạn đã quan tâm và theo dõi ứng dụng của chúng tôi <3. Mong các bạn có những trải nghiệm thật tốt, vui vẻ và nếu có đóng góp phát triển thì các bạn hãy mạnh dạn gửi tin nhắn cho đội ngũ tại mục Liên hệ',
+      'Cuối cùng, cảm ơn các bạn đã quan tâm và theo dõi ứng dụng của chúng tôi <3. Mong các bạn có những trải nghiệm thật tốt, vui vẻ <3',
     ],
   },
   // {
@@ -187,27 +190,51 @@ const experiences = [
 const testimonials = [
   {
     testimonial:
-      'I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.',
-    name: 'Sara Lee',
-    designation: 'CFO',
-    company: 'Acme Co',
-    image: 'https://randomuser.me/api/portraits/women/4.jpg',
+      'Phụ trách giám sát trực tiếp của chúng tôi, người đã hỗ trợ sâu rộng về công nghệ, hiểu biết kinh doanh và tài liệu',
+    name: 'Nguyễn Thế Hoàng',
+    designation: 'Giảng viên',
+    company: 'Adventures Team',
+    image: 'https://scontent.fsgn2-7.fna.fbcdn.net/v/t39.30808-6/270961679_10159870536636108_2642967668131478092_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=V1Ahi73iv7kAX-zJ6fC&_nc_ht=scontent.fsgn2-7.fna&oh=00_AfD-MCFswaPhCiCVv1TLX835Z2CC2ORG1cV3iKoTWiz51A&oe=64EFEDD7',
   },
   {
     testimonial:
-      "I've never met a web developer who truly cares about their clients' success like Rick does.",
-    name: 'Chris Brown',
-    designation: 'COO',
-    company: 'DEF Corp',
-    image: 'https://randomuser.me/api/portraits/men/5.jpg',
+      'Phụ trách BE, hỗ trợ những BE khác, đảm nhiệm phần thiết kế game trên mobile app và làm tốt nhiệm vụ thúc đẩy team',
+    name: 'Huỳnh Anh Kiệt',
+    designation: 'Nhóm trưởng',
+    company: 'Adventures Team',
+    image: 'https://scontent.fsgn2-4.fna.fbcdn.net/v/t39.30808-6/294452483_3274221776148529_7319818337640310778_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=P2_gxjrvQKcAX9a7Opr&_nc_ht=scontent.fsgn2-4.fna&oh=00_AfDOx8rjdhvW_tU26ziuoG2zvHLL5tB-PAFfvO115_r_DQ&oe=64EEDE9E',
   },
   {
     testimonial:
-      "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
-    name: 'Lisa Wang',
-    designation: 'CTO',
-    company: '456 Enterprises',
-    image: 'https://randomuser.me/api/portraits/women/6.jpg',
+      "Hỗ trợ thiết kế database, đảm nhiện phần thiết kế game trên mobile app đặc biệt là về thiết kế giao diện",
+    name: 'Đinh Thế Khang',
+    designation: 'Thành viên',
+    company: 'Adventures Team',
+    image: 'https://scontent.fsgn2-4.fna.fbcdn.net/v/t39.30808-1/295313525_1390434318143997_3963683955989091616_n.jpg?stp=dst-jpg_s200x200&_nc_cat=101&ccb=1-7&_nc_sid=7206a8&_nc_ohc=4bDCDvgAqlQAX_WVN0r&_nc_ht=scontent.fsgn2-4.fna&oh=00_AfCOGYQk6oGziJhhzGoxCxJr4aP4n87-CWWUqg_yePyHgw&oe=64EEC02C',
+  },
+  {
+    testimonial:
+      "Phụ trách BE, thiết kế database và hiện thực một số các chức năng trong web",
+    name: 'Nguyễn Tuấn Thành',
+    designation: 'Thành viên',
+    company: 'Adventures Team',
+    image: 'https://scontent.fsgn2-9.fna.fbcdn.net/v/t39.30808-1/311011200_847241399971915_8298401029764434529_n.jpg?stp=dst-jpg_p200x200&_nc_cat=105&ccb=1-7&_nc_sid=7206a8&_nc_ohc=6gjcdZbUMFMAX_niTV3&_nc_oc=AQkULRIYeZpiWpmUEt--1TmJp8So9DcAnAxUHSYmFy2o-a9GLOpeLrMXu_MzqxlMRyM&_nc_ht=scontent.fsgn2-9.fna&oh=00_AfDvRQn7gw6gzDKNiQWSu7z5MD1pcSPq5NDx7YUlX2GrDg&oe=64EE9111',
+  },
+  {
+    testimonial:
+      'Phụ trách FE chính, thiết kế giao diện và hiện thực hầu hết các chức năng trên web',
+    name: 'Lê Văn Trung',
+    designation: 'Thành viên',
+    company: 'Adventures Team',
+    image: 'https://scontent.fsgn2-9.fna.fbcdn.net/v/t39.30808-6/357724672_3170092003283502_7185474822923379824_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=8Lkr3bUulDQAX8PDihD&_nc_ht=scontent.fsgn2-9.fna&oh=00_AfCEe8bItSpJS8DjWDlp9aAK5c4O-6pApJW0Qpno0YHxvA&oe=64EF8303',
+  },
+  {
+    testimonial:
+      "Phụ trách FE phụ & BA thiết kế giao diện, thiết kế database và kiểm tra các chức năng",
+    name: 'Ngô Chí Bảo',
+    designation: 'Thành viên',
+    company: 'Adventures Team',
+    image: 'https://scontent.fsgn2-6.fna.fbcdn.net/v/t39.30808-6/325955881_479295167706001_6547223433003633623_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=PXmdNQ2SolcAX_Us4S4&_nc_oc=AQmpLg2nJh-QeiRXO-EAdNVxWJle_QqXuxR_Lhw1Y_wK_4RqR9920XxTjXC3qSuKuuU&_nc_ht=scontent.fsgn2-6.fna&oh=00_AfDrIKeGn9IQ3uEN3g0q58v6FGI1ryNGIH4nX1ONSHDQOA&oe=64EE452B',
   },
 ]
 

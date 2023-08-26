@@ -4,13 +4,9 @@
 import { motion } from "framer-motion";
 import { styles } from "../styles";
 // import { FPTCanvas } from "./canvas";
-import YouTube from 'react-youtube';
+import Youtube from "./Youtube";
 
 const Hero = () => {
-  const opts = {
-    height: '400',
-    width: '700',
-  };
   return (
     <section className="relative w-full h-screen mx-auto">
       <div
@@ -31,11 +27,7 @@ const Hero = () => {
             ảo.
           </p>
 
-          <div className="pt-[20px] pl-[200px]">
-            <YouTube opts={opts} videoId="kNgZ4VMmXdo" /> {/* Use the YouTube video ID */}
-            <span className="text-[#fff] ml-[200px]">Video hướng dẫn về Cách chơi & Hệ thống</span>
-            
-          </div>
+          <Youtube />
 
         </div>
       </div>

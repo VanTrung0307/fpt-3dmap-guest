@@ -107,14 +107,14 @@ const Navbar = () => {
                       transition: "transform opacity-100 scale-100",
                     }}
                   >
-                    <div className="w-10 h-10 rounded-full overflow-hidden border-2 dark:border-white border-gray-900">
+                    <div className="w-[40px] h-[40px] rounded-full overflow-hidden border-2 dark:border-white border-gray-900">
                       <img
                         src="https://www.linux.org/data/avatars/o/32/32035.jpg?1565435149"
                         alt=""
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <div className="font-semibold dark:text-white text-gray-900 text-lg">
+                    <div className="font-semibold dark:text-white text-gray-900 text-lg w-[100px]">
                       <div className="cursor-pointer">{nickname}</div>
                     </div>
                   </div>
@@ -130,7 +130,7 @@ const Navbar = () => {
                       <ul className="space-y-3 dark:text-white">
                         <li className="font-medium">
                           <a
-                            href="#"
+                            href="/account"
                             className="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-orange-500"
                           >
                             <div className="mr-3">
@@ -152,7 +152,7 @@ const Navbar = () => {
                             Account
                           </a>
                         </li>
-                        <li className="font-medium">
+                        {/* <li className="font-medium">
                           <a
                             href="#"
                             className="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-orange-500"
@@ -181,7 +181,7 @@ const Navbar = () => {
                             </div>
                             Setting
                           </a>
-                        </li>
+                        </li> */}
                         <hr className="dark:border-gray-700" />
                         <li className="font-medium">
                           <a

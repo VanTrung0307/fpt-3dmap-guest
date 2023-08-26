@@ -3,7 +3,12 @@ import PropTypes from "prop-types";
 import React, { createContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { login } from "../api/Account";
-import { getPlayers, } from "../api/Player";
+import { getPlayers } from "../api/Player";
+import {
+  readLocalStorage,
+  removeLocalStorage,
+  writeLocalStorage,
+} from "./localStorageService";
 
 const AuthContext = createContext();
 
@@ -13,74 +18,88 @@ const AuthProvider = ({ children }) => {
   const [studentId, setStudentId] = useState("");
   const [players, setPlayers] = useState("");
   const [nickname, setNickname] = useState("");
-
-  const [events, setEvents] = useState([]);
-  const [schools, setSchools] = useState([]);
+  const [point, setPoint] = useState("");
+  const [time, setTime] = useState("");
+  const [createAt, setCreateAt] = useState("");
+  const [schoolName, setschoolName] = useState("");
+  const [eventName, seteventName] = useState("");
   // const [userRank, setUserRank] = useState(null);
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    const email = localStorage.getItem("email");
-    const studentId = localStorage.getItem("studentId");
-    const nickname = localStorage.getItem("nickname");
-    if (token && email && studentId && nickname) {
+    const token = readLocalStorage("token");
+    const email = readLocalStorage("email");
+    const studentId = readLocalStorage("studentId");
+    const nickname = readLocalStorage("nickname");
+    const point = readLocalStorage("totalPoint");
+    const time = readLocalStorage("totalTime");
+    const createAt = readLocalStorage("createdAt");
+    const schoolName = readLocalStorage("schoolName");
+    const eventName = readLocalStorage("eventName");
+
+    if (
+      token &&
+      email &&
+      studentId &&
+      nickname &&
+      point &&
+      time &&
+      createAt &&
+      schoolName &&
+      eventName
+    ) {
       setLoggedIn(true);
       setUser(email);
       setStudentId(studentId);
       setNickname(nickname);
+      setPoint(point);
+      setTime(time);
+      setCreateAt(createAt);
+      setschoolName(schoolName);
+      seteventName(eventName);
     }
-
-    fetchRanksAndPlayers(studentId);
-    fetchEventAndSchoolData();
   }, []);
-
-  const fetchEventAndSchoolData = async () => {
-    try {
-      const eventsResponse = await fetch(`https://anhkiet-001-site1.htempurl.com/api/Events`);
-      const schoolsResponse = await fetch(`https://anhkiet-001-site1.htempurl.com/api/Schools`);
-
-      const eventsData = await eventsResponse.json();
-      const schoolsData = await schoolsResponse.json();
-
-      setEvents(eventsData);
-      setSchools(schoolsData);
-    } catch (error) {
-      console.error("Error fetching event and school data:", error);
-    }
-  };
 
   const authenLogin = async (email, passcode) => {
     try {
       const response = await login(email, passcode);
 
       if (JSON.stringify(response.data) !== "{}") {
-        localStorage.setItem("token", response.data.token);
+        writeLocalStorage("token", response.data.token);
         setLoggedIn(true);
-        localStorage.setItem("email", response.data.email);
+        writeLocalStorage("email", response.data.email);
+        writeLocalStorage("nickname", response.data.nickname);
+        writeLocalStorage("totalPoint", response.data.totalPoint);
+        writeLocalStorage("totalTime", response.data.totalTime);
+        writeLocalStorage("studentId", response.data.studentId);
+        writeLocalStorage("createdAt", response.data.createdAt);
+        writeLocalStorage("schoolName", response.data.schoolName);
+        writeLocalStorage("eventName", response.data.eventName);
 
-        localStorage.setItem("nickname", response.data.nickname);
-        console.log("nickname", response.data.nickname);
-
-        localStorage.setItem("studentId", response.data.studentId);
         await fetchRanksAndPlayers(response.data.studentId);
 
-        toast.success("Login successful!", { autoClose: 3000 });
+        toast.success("Đăng nhập thành công", { autoClose: 3000 });
       } else if (response.data.status === 400 && response.data.errors) {
         const errorMessage = Object.values(response.data.errors)[0][0];
         toast.error(errorMessage, { autoClose: 3000 });
       } else {
-        toast.error("Invalid username or password", { autoClose: 3000 });
+        toast.error("Tài khoản hoặc mật khẩu sai", { autoClose: 3000 });
       }
     } catch (error) {
-      toast.error("Invalid username or password", { autoClose: 3000 });
+      toast.error("Tài khoản hoặc mật khẩu sai", { autoClose: 3000 });
     }
   };
 
   const logout = () => {
-    setUser(false)
+    setUser(false);
     setNickname(null);
-    setLoggedIn(false);
-    localStorage.removeItem("token");
+    setPoint(false);
+    setTime(false);
+    setCreateAt(false);
+    setschoolName(false);
+    setCreateAt(false);
+    seteventName(false);
+    removeLocalStorage("token");
+    window.location.href = "/";
   };
 
   const fetchRanksAndPlayers = async (userId) => {
@@ -93,10 +112,10 @@ const AuthProvider = ({ children }) => {
         // console.log(userRankIndex);
         setPlayers(userRankIndex);
       } else {
-        console.log("Error fetching ranks and players: Invalid data format");
+        // console.log("Error fetching ranks and players: Invalid data format");
       }
     } catch (error) {
-      console.log("Error fetching ranks and players:", error);
+      // console.log("Error fetching ranks and players:", error);
     }
   };
 
@@ -110,8 +129,11 @@ const AuthProvider = ({ children }) => {
         nickname,
         fetchRanksAndPlayers,
         players,
-        events,
-        schools
+        point,
+        time,
+        createAt,
+        schoolName,
+        eventName,
       }}
     >
       {children}

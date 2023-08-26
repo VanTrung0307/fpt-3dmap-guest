@@ -26,8 +26,9 @@ export const LoginPage = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    const response = await authenLogin(email, passcode);
-    navigate("/");
+    await authenLogin(email, passcode);
+    window.location.href = "/";
+    // navigate("/")
   };
 
   return (
@@ -50,7 +51,7 @@ export const LoginPage = () => {
               strokeLinejoin="round"
               d="M15 19l-7-7 7-7"
             />
-            <title>Back</title>
+            <title>Trở lại</title>
           </svg>
         </button>
 
@@ -68,7 +69,7 @@ export const LoginPage = () => {
         >
           <div className="w-full h-100">
             <h1 className="text-xl md:text-2xl font-bold leading-tight mt-12 text-black">
-              Log in to your account
+              Đăng nhập vào tài khoản của bạn
             </h1>
 
             <form className="mt-6" onSubmit={handleLogin}>
@@ -77,7 +78,7 @@ export const LoginPage = () => {
                 <input
                   type="text"
                   name="email"
-                  placeholder="Enter Email"
+                  placeholder="Nhập Email"
                   className="w-full px-4 py-3 rounded-lg bg-gray-200 text-black mt-2 border focus:border-orange-500 focus:bg-white focus:outline-none"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -86,12 +87,12 @@ export const LoginPage = () => {
               </div>
 
               <div className="mt-4">
-                <label className="block text-black">Passcode</label>
+                <label className="block text-black">Mã tham gia</label>
                 <div className="relative">
                   <input
                     type={showPassword ? "text" : "password"}
                     name="passcode"
-                    placeholder="Enter Passcode"
+                    placeholder="Nhật mã tham gia"
                     // minLength="8"
                     // maxLength="15"
                     className="w-full px-4 py-3 rounded-lg bg-gray-200 text-black mt-2 border focus:border-orange-500 focus:bg-white focus:outline-none"
@@ -136,34 +137,34 @@ export const LoginPage = () => {
                 </div>
               </div>
 
-              <div className="text-right mt-2">
+              {/* <div className="text-right mt-2">
                 <Link to={"/forgotPassword"}>
                   <a className="text-sm font-semibold text-orange-500 hover:text-orange-700 focus:text-orange-700">
                     Forgot Password?
                   </a>
                 </Link>
-              </div>
+              </div> */}
 
               <button
                 type="submit"
                 className="w-full block bg-orange-500 hover:bg-orange-400 focus:bg-orange-400 text-white font-semibold rounded-lg
             px-4 py-3 mt-6"
               >
-                Log In
+                Đăng nhập
               </button>
               <ToastContainer />
             </form>
 
-            <hr className="my-6 border-gray-300 w-full" />
+            {/* <hr className="my-6 border-gray-300 w-full" /> */}
 
-            <p className="mt-8 text-black ml-[70px]">
+            {/* <p className="mt-8 text-black ml-[70px]">
               Need an account?{" "}
               <Link to={"/signup"}>
                 <a className="text-orange-500 hover:text-orange-700 font-semibold">
                   Create an account
                 </a>
               </Link>
-            </p>
+            </p> */}
           </div>
         </div>
       </section>

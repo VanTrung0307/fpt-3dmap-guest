@@ -64,31 +64,6 @@ const LearderboardNavbar = () => {
             FPTU HCM&nbsp; <span className="sm:block hidden">Adventures</span>
           </p>
         </Link>
-        {/* <ul className="list-none hidden sm:flex flex-row gap-10">
-          {navLinks.map((link) => (
-            <>
-              <li
-                key={link.id}
-                className={`${
-                  active == link.title ? "text-white" : "text-secondary"
-                } hover:text-white text-[18px] font-medium cursor-pointer`}
-                onClick={() => setActive(link.title)}
-              >
-                <a href={`#${link.id}`}>{link.title}</a>
-              </li>
-            </>
-          ))}
-          <Link to={"/leaderboard"}>
-            <li
-              className={`${
-                active ? "text-white" : "text-secondary"
-              } hover:text-white text-[18px] font-medium cursor-pointer`}
-            >
-              Bảng xếp hạng
-            </li>
-          </Link>
-        </ul> */}
-
         <div className="hidden sm:inline-block">
           {loggedIn ? (
             <div className="h-8 flex justify-center items-center">
@@ -107,14 +82,14 @@ const LearderboardNavbar = () => {
                       transition: "transform opacity-100 scale-100",
                     }}
                   >
-                    <div className="w-10 h-10 rounded-full overflow-hidden border-2 dark:border-white border-gray-900">
+                    <div className="w-[40px] h-[40px] rounded-full overflow-hidden border-2 dark:border-white border-gray-900">
                       <img
                         src="https://www.linux.org/data/avatars/o/32/32035.jpg?1565435149"
                         alt=""
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <div className="font-semibold dark:text-white text-gray-900 text-lg">
+                    <div className="font-semibold dark:text-white text-gray-900 text-lg w-[100px]">
                       <div className="cursor-pointer">{nickname}</div>
                     </div>
                   </div>
@@ -130,7 +105,7 @@ const LearderboardNavbar = () => {
                       <ul className="space-y-3 dark:text-white">
                         <li className="font-medium">
                           <a
-                            href="#"
+                            href="/account"
                             className="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-orange-500"
                           >
                             <div className="mr-3">
@@ -152,7 +127,7 @@ const LearderboardNavbar = () => {
                             Account
                           </a>
                         </li>
-                        <li className="font-medium">
+                        {/* <li className="font-medium">
                           <a
                             href="#"
                             className="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-orange-500"
@@ -181,7 +156,7 @@ const LearderboardNavbar = () => {
                             </div>
                             Setting
                           </a>
-                        </li>
+                        </li> */}
                         <hr className="dark:border-gray-700" />
                         <li className="font-medium">
                           <a

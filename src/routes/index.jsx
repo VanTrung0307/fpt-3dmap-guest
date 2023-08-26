@@ -8,6 +8,7 @@ import Leaderboard from "../components/Leaderboard/Leaderboard";
 import { LoginPage } from "../components/LoginPage";
 import { RegisterPage } from "../components/RegisterPage";
 import App from "./../App";
+import Account from "../components/Account";
 
 export const router = createBrowserRouter([
   {
@@ -43,15 +44,19 @@ export const router = createBrowserRouter([
     element: <Leaderboard />,
   },
   {
-    path: "forgotPassword",
-    element: <ForgotPassword />,
-    children: [
-      {
-        path: "reset",
-        element: <ConfirmResetPassword />,
-      },
-    ],
+    path: "account",
+    element: <Account />,
   },
+  // {
+  //   path: "forgotPassword",
+  //   element: <ForgotPassword />,
+  //   children: [
+  //     {
+  //       path: "reset",
+  //       element: <ConfirmResetPassword />,
+  //     },
+  //   ],
+  // },
   {
     path: "reset",
     element: <ConfirmResetPassword />,

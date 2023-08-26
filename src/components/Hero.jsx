@@ -4,7 +4,7 @@
 import { motion } from "framer-motion";
 import { styles } from "../styles";
 // import { FPTCanvas } from "./canvas";
-import Youtube from "./Youtube";
+import Youtube from "./Youtube/Youtube";
 
 const Hero = () => {
   return (

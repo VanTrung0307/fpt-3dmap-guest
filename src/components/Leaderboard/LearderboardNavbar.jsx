@@ -61,10 +61,10 @@ const LearderboardNavbar = () => {
             className="w-9 h-9 object-contain"
           />
           <p className="text-white text-[18px] font-bold cursor-pointer flex">
-            FPT_HCM &nbsp; <span className="sm:block hidden">Adventures</span>
+            FPTU HCM&nbsp; <span className="sm:block hidden">Adventures</span>
           </p>
         </Link>
-        <ul className="list-none hidden sm:flex flex-row gap-10">
+        {/* <ul className="list-none hidden sm:flex flex-row gap-10">
           {navLinks.map((link) => (
             <>
               <li
@@ -87,7 +87,7 @@ const LearderboardNavbar = () => {
               Bảng xếp hạng
             </li>
           </Link>
-        </ul>
+        </ul> */}
 
         <div className="hidden sm:inline-block">
           {loggedIn ? (

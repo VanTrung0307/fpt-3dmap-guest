@@ -125,7 +125,7 @@ const ExperienceCard = ({ experience, isLast }) => {
           width={window.innerWidth}
           height={window.innerHeight}
           recycle={false}
-          numberOfPieces={200}
+          numberOfPieces={300}
           gravity={0.3}
         />
       )}

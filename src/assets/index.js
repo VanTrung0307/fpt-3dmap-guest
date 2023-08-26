@@ -42,6 +42,8 @@ import iconlogo from './iconlogo.png'
 import loginBg from './loginbg.jpg'
 import MobileLogo from './MobileLogo.png'
 
+import QRCode from './QRCode_Download.png'
+
 export {
   MobileLogo,
   logo,
@@ -79,5 +81,6 @@ export {
   logoShirt,
   stylishShirt,
   iconlogo,
-  loginBg
+  loginBg,
+  QRCode
 }

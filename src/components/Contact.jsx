@@ -8,6 +8,7 @@ import { styles } from "../styles";
 import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
+import { QRCodeDownload } from "../constants";
 
 const Contact = () => {
   const formRef = useRef();
@@ -35,24 +36,24 @@ const Contact = () => {
       to_email: "trunglelop95@gmail.com",
       message: form.message,
     },
-    'uega8TTF8HhCJ8wP3'
+      'uega8TTF8HhCJ8wP3'
     )
-    .then(() => {
-      setLoading(false)
-      alert('I will get back to you as soon as possible.');
+      .then(() => {
+        setLoading(false)
+        alert('I will get back to you as soon as possible.');
 
-      setForm({
-        name: '',
-        email: '',
-        message: ''
+        setForm({
+          name: '',
+          email: '',
+          message: ''
+        })
+      }, (error) => {
+        setLoading(false)
+
+        console.log(error);
+
+        alert('Something went wrong.')
       })
-    }, (error) => {
-      setLoading(false)
-
-      console.log(error);
-
-      alert('Something went wrong.')
-    })
   };
 
   return (
@@ -116,7 +117,12 @@ const Contact = () => {
         variants={slideIn("right", "tween", 0.2, 1)}
         className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px] "
       >
-        <EarthCanvas />
+        {/* <EarthCanvas /> */}
+        <img
+          src={QRCodeDownload.icon} // Update the path to your QR Code image
+          alt="QR Code"
+          className="w-full h-full object-contain"
+        />
       </motion.div>
     </div>
   );

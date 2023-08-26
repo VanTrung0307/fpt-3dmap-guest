@@ -26,7 +26,12 @@ import {
   iconlogo,
   loginBg,
   MobileLogo,
+  QRCode
 } from '../assets'
+
+export const QRCodeDownload = {
+  icon: QRCode
+}
 
 export const logoNavbar = {
   icon: iconlogo,
@@ -53,17 +58,17 @@ export const navLinks = [
 
 const services = [
   {
-    title: 'Web FPT_HCM Adventures',
+    title: 'Web FPTU HCMAdventures',
     detail: 'Tìm hiểu rõ hơn về ứng dụng thực tế ảo để sinh viên khám phá, thi đấu và kiểm tra thứ hạng trên bảng xếp hạng',
     icon: web,
   },
   {
-    title: 'Android FPT_HCM Adventures',
+    title: 'Android FPTU HCMAdventures',
     detail: 'Chiêm ngưỡng cảnh quan tuyệt đẹp và tham gia các nhiệm vụ thú vị để giành những phần quà hấp dẫn thông qua thực tế ảo 3D',
     icon: mobile,
   },
   {
-    title: 'Admin Web FPT_HCM Adventures',
+    title: 'Admin Web FPTU HCMAdventures',
     detail: 'Quản lý, nâng cấp và bảo trì server giúp cho học sinh có những trải nghiệm tốt nhất',
     icon: backend,
   },
@@ -130,31 +135,31 @@ const technologies = [
 
 const experiences = [
   {
-    title: 'Web FPT_HCM Adventures',
+    title: 'Web FPTU HCMAdventures',
     icon: iconlogo,
     iconBg: '#383E56',
     step: 'Bước 1',
     points: [
-      'Khám phá, hiểu rõ hơn về ứng dụng FPT_HCM 3D Map Campus sử dụng công nghệ Unity là như thế nào. Ngoài ra còn biết được bảng xếp hạng Leaderboard vào mỗi sự kiện mà các học sinh cấp 3 đã tham gia FPT_HCM Adventures!',
+      'Khám phá, hiểu rõ hơn về ứng dụng FPTU HCM3D Map Campus sử dụng công nghệ Unity là như thế nào. Ngoài ra còn biết được bảng xếp hạng Leaderboard vào mỗi sự kiện mà các học sinh cấp 3 đã tham gia FPTU HCMAdventures!',
       'Đặc biệt những học sinh đến từ trường cấp 3 có tham gia ứng dụng thực tế ảo 3D Map sẽ đăng ký tại đây',
       'Sau khi đăng ký (email tồn tại), sẽ nhận được tin trong email đó để xác thực',
       'Cuối cùng, khi xác thực thành công, bạn sẽ nhận được mã QR để tải ứng dụng về điện thoại của bạn (chỉ có trên Android)',
     ],
   },
   {
-    title: 'Android FPT_HCM Adventures',
+    title: 'Android FPTU HCMAdventures',
     icon: MobileLogo,
     iconBg: '#E6DEDD',
     step: 'Bước 2',
     points: [
       'Sau khi tải thành công và chọn ứng dụng, bạn sẽ đăng nhập tài khoản mà bạn trước đó đã tạo. Bạn có thể đăng nhập bằng cả 2 cách đều được!',
-      'Mong bạn trước khi tham gia FPT_HCM Adventures, chắc chắn rằng bạn đã đọc và hiểu Hệ thống và Cách chơi',
+      'Mong bạn trước khi tham gia FPTU HCMAdventures, chắc chắn rằng bạn đã đọc và hiểu Hệ thống và Cách chơi',
       'Cuối cùng, bắt đầu cuộc hành trình và tìm kiếm những điểm số để nhận được phần quà hấp dẫn!',
       // 'Participating in code reviews and providing constructive feedback to other developers.',
     ],
   },
   {
-    title: 'Web FPT_HCM Adventures',
+    title: 'Web FPTU HCMAdventures',
     icon: iconlogo,
     iconBg: '#383E56',
     step: 'Bước 3 - Cuối cùng',

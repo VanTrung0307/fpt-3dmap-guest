@@ -3,9 +3,14 @@
 /* eslint-disable no-unused-vars */
 import { motion } from "framer-motion";
 import { styles } from "../styles";
-import { FPTCanvas } from "./canvas";
+// import { FPTCanvas } from "./canvas";
+import YouTube from 'react-youtube';
 
 const Hero = () => {
+  const opts = {
+    height: '400',
+    width: '700',
+  };
   return (
     <section className="relative w-full h-screen mx-auto">
       <div
@@ -21,14 +26,23 @@ const Hero = () => {
             Chào mừng đến với <span className="text-[#Ffb347]">FPT HCM</span>
           </h1>
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-            FPT HCM đã tận dụng công nghệ Bản đồ 3D (FPT_HCM Adventures){" "}
+            FPT HCM đã tận dụng công nghệ Bản đồ 3D (FPTU HCMAdventures){" "}
             <br className="sm:block hidden" /> để tạo ra một trải nghiệm thực tế
             ảo.
           </p>
+
+          <div className="pt-[20px] pl-[200px]">
+            <YouTube opts={opts} videoId="kNgZ4VMmXdo" /> {/* Use the YouTube video ID */}
+            <span className="text-[#fff] ml-[200px]">Video hướng dẫn về Cách chơi & Hệ thống</span>
+            
+          </div>
+
         </div>
       </div>
 
       {/* <FPTCanvas /> */}
+
+
 
       <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">
         <a href="#about">

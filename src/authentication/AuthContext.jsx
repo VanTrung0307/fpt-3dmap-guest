@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import React, { createContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { login } from "../api/Account";
-import { getPlayers } from "../api/Player";
+import { getPlayers, } from "../api/Player";
 
 const AuthContext = createContext();
 
@@ -13,6 +13,9 @@ const AuthProvider = ({ children }) => {
   const [studentId, setStudentId] = useState("");
   const [players, setPlayers] = useState("");
   const [nickname, setNickname] = useState("");
+
+  const [events, setEvents] = useState([]);
+  const [schools, setSchools] = useState([]);
   // const [userRank, setUserRank] = useState(null);
 
   useEffect(() => {
@@ -28,7 +31,23 @@ const AuthProvider = ({ children }) => {
     }
 
     fetchRanksAndPlayers(studentId);
+    fetchEventAndSchoolData();
   }, []);
+
+  const fetchEventAndSchoolData = async () => {
+    try {
+      const eventsResponse = await fetch(`https://anhkiet-001-site1.htempurl.com/api/Events`);
+      const schoolsResponse = await fetch(`https://anhkiet-001-site1.htempurl.com/api/Schools`);
+
+      const eventsData = await eventsResponse.json();
+      const schoolsData = await schoolsResponse.json();
+
+      setEvents(eventsData);
+      setSchools(schoolsData);
+    } catch (error) {
+      console.error("Error fetching event and school data:", error);
+    }
+  };
 
   const authenLogin = async (email, passcode) => {
     try {
@@ -91,6 +110,8 @@ const AuthProvider = ({ children }) => {
         nickname,
         fetchRanksAndPlayers,
         players,
+        events,
+        schools
       }}
     >
       {children}

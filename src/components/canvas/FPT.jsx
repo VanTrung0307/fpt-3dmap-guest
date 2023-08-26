@@ -7,28 +7,64 @@ import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 
 import CanvasLoader from "../Loader/Loader";
 
-const FPT = ({ isMobile }) => {
-  const fpt= useGLTF("map/fpt.gltf", true);
+// const FPT = ({ isMobile }) => {
+//   const fpt= useGLTF("map/fpt.gltf", true);
+
+//   return (
+//     <mesh>
+//       <hemisphereLight intensity={0.15} groundColor="black" />
+//       <pointLight intensity={1} />
+//       <spotLight
+//         position={[-20, 50, 10]}
+//         angle={0.12}
+//         penumbra={1}
+//         intensity={1}
+//         castShadow
+//         shadow-mapSize={1024}
+//       />
+//       <primitive
+//         object={fpt.scene}
+//         scale={isMobile ? 0.05 : 0.055}
+//         position={isMobile ? [0, -3, -2.2] : [0, -2.25, -0.5]}
+//         rotation={[-0.01, -0.2, 0]}
+//       />
+//     </mesh>
+//   );
+// };
+
+const FPT = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Similar to your existing code
+  }, []);
 
   return (
-    <mesh>
-      <hemisphereLight intensity={0.15} groundColor="black" />
-      <pointLight intensity={1} />
-      <spotLight
-        position={[-20, 50, 10]}
-        angle={0.12}
-        penumbra={1}
-        intensity={1}
-        castShadow
-        shadow-mapSize={1024}
-      />
-      <primitive
-        object={fpt.scene}
-        scale={isMobile ? 0.05 : 0.055}
-        position={isMobile ? [0, -3, -2.2] : [0, -2.25, -0.5]}
-        rotation={[-0.01, -0.2, 0]}
-      />
-    </mesh>
+    <Canvas
+      frameloop="demand"
+      shadows
+      camera={{ position: [20, 3, 5], fov: 25 }}
+      gl={{ preserveDrawingBuffer: false }}
+    >
+      <Suspense fallback={<CanvasLoader />}>
+        <OrbitControls
+          enableZoom={true}
+          maxPolarAngle={Math.PI / 2}
+          minPolarAngle={Math.PI / 2}
+        />
+        <FPT isMobile={isMobile} />
+
+        {/* Embed YouTube video */}
+        <mesh position={[5, 5, -10]}>
+          <planeGeometry args={[16, 9]} />
+          <meshBasicMaterial>
+            <videoTexture attach="map" args={['https://www.youtube.com/watch?v=kNgZ4VMmXdo']} />
+          </meshBasicMaterial>
+        </mesh>
+      </Suspense>
+
+      <Preload all />
+    </Canvas>
   );
 };
 

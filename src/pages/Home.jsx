@@ -112,7 +112,7 @@ const Home = () => {
             <motion.div className="home-content" {...headContainerAnimation}>
               <motion.div {...headTextAnimation}>
                 <h1 className="head-text">
-                  FPT_HCM <br className="xl:block hidden" />3DMAP
+                  FPTU HCM<br className="xl:block hidden" />3DMAP
                 </h1>
               </motion.div>
               <motion.div

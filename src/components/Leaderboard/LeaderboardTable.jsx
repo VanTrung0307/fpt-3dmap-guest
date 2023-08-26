@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getPlayers } from "../../api/Player";
+import { getRankofPlayers, getPlayers } from "../../api/Player";
 import { AuthContext } from "../../authentication/AuthContext";
 import "../Leaderboard/LeaderboardTable.css";
 import Pagination from "./../Pagination";
@@ -11,15 +11,28 @@ const ITEMS_PER_PAGE = 10;
 const LeaderboardTable = () => {
   const [rank, setRank] = useState([]);
   const [player, setPlayer] = useState([]);
+  const [selectedEventId, setSelectedEventId] = useState(null);
+  const [selectedSchoolId, setSelectedSchoolId] = useState(null);
 
   useEffect(() => {
     const fetchRankOptions = async () => {
       try {
-        const playerBoard = await getPlayers();
-        setPlayer(playerBoard);
+        // Fetch event and school data here
+        const eventsResponse = await fetch(`https://anhkiet-001-site1.htempurl.com/api/Events`);
+        const schoolsResponse = await fetch(`https://anhkiet-001-site1.htempurl.com/api/Schools`);
+
+        const eventsData = await eventsResponse.json();
+        const schoolsData = await schoolsResponse.json();
+
+        // For the sake of example, let's assume you pick the first event and school
+        const selectedEvent = eventsData[0];
+        const selectedSchool = schoolsData[0];
+
+        const rankedPlayers = await getRankofPlayers(selectedEvent.id, selectedSchool.id);
+        setRank(rankedPlayers);
       } catch (error) {
-        console.error("Error fetching school options:", error);
-        setPlayer([]);
+        console.error("Error fetching ranked players:", error);
+        setRank([]);
       }
     };
 
@@ -40,12 +53,52 @@ const LeaderboardTable = () => {
   console.log("nickname leader", nickname);
   console.log(players);
 
+  const fetchRankOptions = async () => {
+    try {
+      const rankedPlayers = await getRankofPlayers(selectedEventId, selectedSchoolId);
+      setRank(rankedPlayers);
+    } catch (error) {
+      console.error("Error fetching ranked players:", error);
+      setRank([]);
+    }
+  };
+
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-900">
       <div className="col-span-12">
         <h1 className="flex items-center justify-center font-bold text-6xl custom-font mt-[70px]">
           Leaderboard
         </h1>
+        <div className="filter-controls">
+          <label>
+            Event ID:
+            <select
+              value={selectedEventId || ''}
+              onChange={(e) => setSelectedEventId(e.target.value)}
+            >
+              <option value="">Select Event</option>
+              {player.map(player => (
+                <option key={player.eventId} value={player.eventId}>
+                  {player.eventId}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label>
+            School ID:
+            <select
+              value={selectedSchoolId || ''}
+              onChange={(e) => setSelectedSchoolId(e.target.value)}
+            >
+              <option value="">Select School</option>
+              {player.map(player => (
+                <option key={player.schoolId} value={player.schoolId}>
+                  {player.schoolId}
+                </option>
+              ))}
+            </select>
+          </label>
+        </div>
         <div className="overflow-auto lg:overflow-visible">
           <table className="table flex w-[65rem] text-gray-400 border-separate space-y-6 text-sm">
             <thead className="bg-gray-800 text-gray-500">
@@ -73,10 +126,10 @@ const LeaderboardTable = () => {
                             actualIndex === 0
                               ? "/medal/top1.png"
                               : actualIndex === 1
-                              ? "/medal/top2.png"
-                              : actualIndex === 2
-                              ? "/medal/top3.png"
-                              : ""
+                                ? "/medal/top2.png"
+                                : actualIndex === 2
+                                  ? "/medal/top3.png"
+                                  : ""
                           }
                           alt="unsplash image"
                         />
@@ -106,8 +159,8 @@ const LeaderboardTable = () => {
 
         {loggedIn ? (
           <>
-          {nickname}
-          
+            {nickname}
+
             <h1 className="font-bold text-6xl custom-font">Your rank:</h1>
 
             <table className="table flex text-gray-400 border-separate space-y-6 text-sm">

@@ -51,7 +51,7 @@ const About = () => {
         variants={fadeIn("", "", 0.1, 1)}
         className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
       >
-        FPT_HCM Adventures mang đến cho học sinh một trải nghiệm thú vị và sôi
+        FPTU HCMAdventures mang đến cho học sinh một trải nghiệm thú vị và sôi
         động, không chỉ giúp họ khám phá trường Đại học FPT HCM một cách tương
         tác, mà còn tạo ra cơ hội để họ tranh tài, tương tác và nhận được những
         phần thưởng đáng giá. Hãy sẵn sàng bước vào cuộc phiêu lưu ảo tuyệt vời

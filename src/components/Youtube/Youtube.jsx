@@ -17,9 +17,9 @@ const Youtube = () => {
   return (
     <div className="pl-[90px] mt-[-70px]">
       <div className="video-container">
-        <YouTube opts={opts} videoId="kNgZ4VMmXdo" />
+        <YouTube opts={opts} videoId="McZnBMLncRM" />
       </div>
-      <span className="text-[#fff] ml-[200px]">
+      <span className="text-[#fff] ml-[300px]">
         Video hướng dẫn về Cách chơi & Hệ thống
       </span>
     </div>

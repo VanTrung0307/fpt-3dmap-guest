@@ -66,8 +66,8 @@ const Works = () => {
   return (
     <>
       <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}>My work</p>
-        <h2 className={styles.sectionHeadText}>Project.</h2>
+        <p className={styles.sectionSubText}>Sản phẩm của chúng tôi</p>
+        <h2 className={styles.sectionHeadText}>Dự án.</h2>
       </motion.div>
 
       <div className="w-full flex">
@@ -75,13 +75,11 @@ const Works = () => {
           variants={fadeIn("", "", 0.1, 1)}
           className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]"
         >
-          Nhân vật của họ sẽ tham gia vào các sự kiện để cạnh tranh với các nhân
-          vật khác (học sinh khác), hoàn thành nhiều hoạt động đa dạng để tìm
-          kiếm điểm thưởng tương ứng và tranh đua với nhau. Mỗi khi tham gia vào
-          một nhiệm vụ, học sinh sẽ có cơ hội tương tác NPC. Những NPC này đại
-          diện cho các ngành học có trong trường FPT HCM. Điều này sẽ giúp họ có
-          cơ hội khám phá và hiểu rõ hơn về ngành học đó thông qua việc tương
-          tác và hoàn thành các nhiệm vụ liên quan.
+          Bạn sẽ khám phá một bản đồ đa dạng gần giống với các tòa nhà học của
+          FPTU HCM, quán cà phê và cả khu vườn xanh mát. Tạo ra một môi trường
+          thú vị để người chơi khám phá và tương tác. Trải qua các nhiệm vụ học
+          tập, tham gia các hoạt động xã hội, và vượt qua những thách thức độc
+          đáo dựa trên cuộc sống thực tế của sinh viên.
         </motion.p>
       </div>
 

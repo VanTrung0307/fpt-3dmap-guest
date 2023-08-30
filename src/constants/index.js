@@ -30,7 +30,7 @@ import {
 } from '../assets'
 
 export const QRCodeDownload = {
-  icon: QRCode
+  icon: QRCode,
 }
 
 export const logoNavbar = {
@@ -63,17 +63,20 @@ export const navLinks = [
 const services = [
   {
     title: 'Web FPTU HCMAdventures',
-    detail: 'Tìm hiểu rõ hơn về ứng dụng thực tế ảo để sinh viên khám phá, thi đấu và kiểm tra thứ hạng trên bảng xếp hạng',
+    detail:
+      'Tìm hiểu rõ hơn về ứng dụng thực tế ảo để sinh viên khám phá, thi đấu và kiểm tra thứ hạng trên bảng xếp hạng',
     icon: web,
   },
   {
     title: 'Android FPTU HCMAdventures',
-    detail: 'Chiêm ngưỡng cảnh quan tuyệt đẹp và tham gia các nhiệm vụ thú vị để giành những phần quà hấp dẫn thông qua thực tế ảo 3D',
+    detail:
+      'Chiêm ngưỡng cảnh quan tuyệt đẹp và tham gia các nhiệm vụ thú vị để giành những phần quà hấp dẫn thông qua thực tế ảo 3D',
     icon: mobile,
   },
   {
     title: 'Admin Web FPTU HCMAdventures',
-    detail: 'Quản lý, nâng cấp và bảo trì server giúp cho học sinh có những trải nghiệm tốt nhất',
+    detail:
+      'Quản lý, nâng cấp và bảo trì server giúp cho học sinh có những trải nghiệm tốt nhất',
     icon: backend,
   },
   // {
@@ -194,7 +197,8 @@ const testimonials = [
     name: 'Nguyễn Thế Hoàng',
     designation: 'Giảng viên',
     company: 'Adventures Team',
-    image: 'https://scontent.fsgn2-7.fna.fbcdn.net/v/t39.30808-6/270961679_10159870536636108_2642967668131478092_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=V1Ahi73iv7kAX-zJ6fC&_nc_ht=scontent.fsgn2-7.fna&oh=00_AfD-MCFswaPhCiCVv1TLX835Z2CC2ORG1cV3iKoTWiz51A&oe=64EFEDD7',
+    image:
+      'https://scontent.fsgn2-7.fna.fbcdn.net/v/t39.30808-6/270961679_10159870536636108_2642967668131478092_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=V1Ahi73iv7kAX-zJ6fC&_nc_ht=scontent.fsgn2-7.fna&oh=00_AfD-MCFswaPhCiCVv1TLX835Z2CC2ORG1cV3iKoTWiz51A&oe=64EFEDD7',
   },
   {
     testimonial:
@@ -202,23 +206,26 @@ const testimonials = [
     name: 'Huỳnh Anh Kiệt',
     designation: 'Nhóm trưởng',
     company: 'Adventures Team',
-    image: 'https://scontent.fsgn2-4.fna.fbcdn.net/v/t39.30808-6/294452483_3274221776148529_7319818337640310778_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=P2_gxjrvQKcAX9a7Opr&_nc_ht=scontent.fsgn2-4.fna&oh=00_AfDOx8rjdhvW_tU26ziuoG2zvHLL5tB-PAFfvO115_r_DQ&oe=64EEDE9E',
+    image:
+      'https://scontent.fsgn2-4.fna.fbcdn.net/v/t39.30808-6/294452483_3274221776148529_7319818337640310778_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=P2_gxjrvQKcAX9a7Opr&_nc_ht=scontent.fsgn2-4.fna&oh=00_AfDOx8rjdhvW_tU26ziuoG2zvHLL5tB-PAFfvO115_r_DQ&oe=64EEDE9E',
   },
   {
     testimonial:
-      "Hỗ trợ thiết kế database, đảm nhiện phần thiết kế game trên mobile app đặc biệt là về thiết kế giao diện",
+      'Hỗ trợ thiết kế database, đảm nhiện phần thiết kế game trên mobile app đặc biệt là về thiết kế giao diện',
     name: 'Đinh Thế Khang',
     designation: 'Thành viên',
     company: 'Adventures Team',
-    image: 'https://scontent.fsgn2-4.fna.fbcdn.net/v/t39.30808-1/295313525_1390434318143997_3963683955989091616_n.jpg?stp=dst-jpg_s200x200&_nc_cat=101&ccb=1-7&_nc_sid=7206a8&_nc_ohc=4bDCDvgAqlQAX_WVN0r&_nc_ht=scontent.fsgn2-4.fna&oh=00_AfCOGYQk6oGziJhhzGoxCxJr4aP4n87-CWWUqg_yePyHgw&oe=64EEC02C',
+    image:
+      'https://scontent.fsgn2-4.fna.fbcdn.net/v/t39.30808-1/295313525_1390434318143997_3963683955989091616_n.jpg?stp=dst-jpg_s200x200&_nc_cat=101&ccb=1-7&_nc_sid=7206a8&_nc_ohc=4bDCDvgAqlQAX_WVN0r&_nc_ht=scontent.fsgn2-4.fna&oh=00_AfCOGYQk6oGziJhhzGoxCxJr4aP4n87-CWWUqg_yePyHgw&oe=64EEC02C',
   },
   {
     testimonial:
-      "Phụ trách BE, thiết kế database và hiện thực một số các chức năng trong web",
+      'Phụ trách BE, thiết kế database và hiện thực một số các chức năng trong web',
     name: 'Nguyễn Tuấn Thành',
     designation: 'Thành viên',
     company: 'Adventures Team',
-    image: 'https://scontent.fsgn2-9.fna.fbcdn.net/v/t39.30808-1/311011200_847241399971915_8298401029764434529_n.jpg?stp=dst-jpg_p200x200&_nc_cat=105&ccb=1-7&_nc_sid=7206a8&_nc_ohc=6gjcdZbUMFMAX_niTV3&_nc_oc=AQkULRIYeZpiWpmUEt--1TmJp8So9DcAnAxUHSYmFy2o-a9GLOpeLrMXu_MzqxlMRyM&_nc_ht=scontent.fsgn2-9.fna&oh=00_AfDvRQn7gw6gzDKNiQWSu7z5MD1pcSPq5NDx7YUlX2GrDg&oe=64EE9111',
+    image:
+      'https://scontent.fsgn2-9.fna.fbcdn.net/v/t39.30808-1/311011200_847241399971915_8298401029764434529_n.jpg?stp=dst-jpg_p200x200&_nc_cat=105&ccb=1-7&_nc_sid=7206a8&_nc_ohc=6gjcdZbUMFMAX_niTV3&_nc_oc=AQkULRIYeZpiWpmUEt--1TmJp8So9DcAnAxUHSYmFy2o-a9GLOpeLrMXu_MzqxlMRyM&_nc_ht=scontent.fsgn2-9.fna&oh=00_AfDvRQn7gw6gzDKNiQWSu7z5MD1pcSPq5NDx7YUlX2GrDg&oe=64EE9111',
   },
   {
     testimonial:
@@ -226,30 +233,32 @@ const testimonials = [
     name: 'Lê Văn Trung',
     designation: 'Thành viên',
     company: 'Adventures Team',
-    image: 'https://scontent.fsgn2-9.fna.fbcdn.net/v/t39.30808-6/357724672_3170092003283502_7185474822923379824_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=8Lkr3bUulDQAX8PDihD&_nc_ht=scontent.fsgn2-9.fna&oh=00_AfCEe8bItSpJS8DjWDlp9aAK5c4O-6pApJW0Qpno0YHxvA&oe=64EF8303',
+    image:
+      'https://scontent.fsgn2-9.fna.fbcdn.net/v/t39.30808-6/357724672_3170092003283502_7185474822923379824_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=8Lkr3bUulDQAX8PDihD&_nc_ht=scontent.fsgn2-9.fna&oh=00_AfCEe8bItSpJS8DjWDlp9aAK5c4O-6pApJW0Qpno0YHxvA&oe=64EF8303',
   },
   {
     testimonial:
-      "Phụ trách FE phụ & BA thiết kế giao diện, thiết kế database và kiểm tra các chức năng",
+      'Phụ trách FE phụ & BA thiết kế giao diện, thiết kế database và kiểm tra các chức năng',
     name: 'Ngô Chí Bảo',
     designation: 'Thành viên',
     company: 'Adventures Team',
-    image: 'https://scontent.fsgn2-6.fna.fbcdn.net/v/t39.30808-6/325955881_479295167706001_6547223433003633623_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=PXmdNQ2SolcAX_Us4S4&_nc_oc=AQmpLg2nJh-QeiRXO-EAdNVxWJle_QqXuxR_Lhw1Y_wK_4RqR9920XxTjXC3qSuKuuU&_nc_ht=scontent.fsgn2-6.fna&oh=00_AfDrIKeGn9IQ3uEN3g0q58v6FGI1ryNGIH4nX1ONSHDQOA&oe=64EE452B',
+    image:
+      'https://scontent.fsgn2-6.fna.fbcdn.net/v/t39.30808-6/325955881_479295167706001_6547223433003633623_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=PXmdNQ2SolcAX_Us4S4&_nc_oc=AQmpLg2nJh-QeiRXO-EAdNVxWJle_QqXuxR_Lhw1Y_wK_4RqR9920XxTjXC3qSuKuuU&_nc_ht=scontent.fsgn2-6.fna&oh=00_AfDrIKeGn9IQ3uEN3g0q58v6FGI1ryNGIH4nX1ONSHDQOA&oe=64EE452B',
   },
 ]
 
 const projects = [
   {
-    name: 'Car Rent',
+    name: 'Vật phẩm ảo',
     description:
-      'Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.',
+      'Vật phẩm được mô phỏng chân thật và đa dạng, thân thuộc với cuộc sống thường ngày của sinh viên.',
     tags: [
       {
         name: 'react',
         color: 'blue-text-gradient',
       },
       {
-        name: 'mongodb',
+        name: 'unity',
         color: 'green-text-gradient',
       },
       {
@@ -258,12 +267,12 @@ const projects = [
       },
     ],
     image: carrent,
-    source_code_link: 'https://github.com/',
+    source_code_link: 'https://github.com/VanTrung0307/fpt-3dmap-guest',
   },
   {
-    name: 'Job IT',
+    name: 'Bản đồ đa dạng',
     description:
-      'Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.',
+      'Bản đồ được xây dựng gần như sát với ngoài đời, nhiều ngóc ngach và nhiệm vụ ẩn đang đợi bản khám phá.',
     tags: [
       {
         name: 'react',
@@ -274,33 +283,33 @@ const projects = [
         color: 'green-text-gradient',
       },
       {
-        name: 'scss',
+        name: 'unity',
         color: 'pink-text-gradient',
       },
     ],
     image: jobit,
-    source_code_link: 'https://github.com/',
+    source_code_link: 'https://github.com/VanTrung0307/fpt-3dmap-guest',
   },
   {
-    name: 'Trip Guide',
+    name: 'Nhân vật phong phú',
     description:
-      'A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.',
+      'Nhiều nhân vật NPC được xây dựng với nhiều câu chuyện thú vị khác nhau và được mô phỏng từ ngoài đời.',
     tags: [
       {
-        name: 'nextjs',
+        name: 'threejs',
         color: 'blue-text-gradient',
       },
       {
-        name: 'supabase',
+        name: 'unity',
         color: 'green-text-gradient',
       },
       {
-        name: 'css',
+        name: 'typescript',
         color: 'pink-text-gradient',
       },
     ],
     image: tripguide,
-    source_code_link: 'https://github.com/',
+    source_code_link: 'https://github.com/VanTrung0307/fpt-3dmap-guest',
   },
 ]
 

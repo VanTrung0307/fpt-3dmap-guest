@@ -4,7 +4,7 @@ import httpApi from "../authentication/httpApi";
 export const getRankofPlayers = async (eventId, schoolId) => {
   try {
     const response = await httpApi.get(
-      `/Players/GetRankedPlayer/${eventId}/${schoolId}`
+      `/PlayerPrizes/GetRankedPlayer/${eventId}/${schoolId}`
     );
     const data = response.data;
     return data.data;

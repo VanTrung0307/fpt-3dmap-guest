@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { styles } from "../styles";
 import { navLinks, logoNavbar } from "../constants";
@@ -35,6 +35,8 @@ const Navbar = () => {
   const handleDropdownToggle = () => {
     setOpen((prevState) => !prevState);
   };
+
+  const navigate = useNavigate();
 
   const { loggedIn, logout, user, nickname } = useContext(AuthContext);
 
@@ -130,7 +132,7 @@ const Navbar = () => {
                       <ul className="space-y-3 dark:text-white">
                         <li className="font-medium">
                           <a
-                            href="account"
+                            onClick={() => navigate("account")}
                             className="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-orange-500"
                           >
                             <div className="mr-3">

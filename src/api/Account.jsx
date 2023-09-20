@@ -1,3 +1,4 @@
+import httpApi from "../authentication/httpApi";
 import axios from "./../utils/axios";
 
 const API_BASE_URL = "https://anhkiet-001-site1.htempurl.com/api/Accounts/";
@@ -71,7 +72,7 @@ export const login = async (email, passcode) => {
   };
 
   try {
-    const response = await axios.post(`${API_BASE_URL}loginunity`, credentials);
+    const response = await httpApi.post(`${API_BASE_URL}loginunity`, credentials);
     console.log(response.data.data);
     return handleSuccess(response.data);
   } catch (error) {

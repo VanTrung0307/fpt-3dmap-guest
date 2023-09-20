@@ -27,6 +27,12 @@ import {
   loginBg,
   MobileLogo,
   QRCode,
+  anhKiet,
+  chiBao,
+  dinhKhang,
+  thayHoang,
+  tuanThanh,
+  vanTrung,
 } from '../assets'
 
 export const QRCodeDownload = {
@@ -197,8 +203,7 @@ const testimonials = [
     name: 'Nguyễn Thế Hoàng',
     designation: 'Giảng viên',
     company: 'Adventures Team',
-    image:
-      'https://scontent.fsgn2-7.fna.fbcdn.net/v/t39.30808-6/270961679_10159870536636108_2642967668131478092_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=V1Ahi73iv7kAX-zJ6fC&_nc_ht=scontent.fsgn2-7.fna&oh=00_AfD-MCFswaPhCiCVv1TLX835Z2CC2ORG1cV3iKoTWiz51A&oe=64EFEDD7',
+    image: thayHoang,
   },
   {
     testimonial:
@@ -206,8 +211,7 @@ const testimonials = [
     name: 'Huỳnh Anh Kiệt',
     designation: 'Nhóm trưởng',
     company: 'Adventures Team',
-    image:
-      'https://scontent.fsgn2-4.fna.fbcdn.net/v/t39.30808-6/294452483_3274221776148529_7319818337640310778_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=P2_gxjrvQKcAX9a7Opr&_nc_ht=scontent.fsgn2-4.fna&oh=00_AfDOx8rjdhvW_tU26ziuoG2zvHLL5tB-PAFfvO115_r_DQ&oe=64EEDE9E',
+    image: anhKiet,
   },
   {
     testimonial:
@@ -215,8 +219,7 @@ const testimonials = [
     name: 'Đinh Thế Khang',
     designation: 'Thành viên',
     company: 'Adventures Team',
-    image:
-      'https://scontent.fsgn2-4.fna.fbcdn.net/v/t39.30808-1/295313525_1390434318143997_3963683955989091616_n.jpg?stp=dst-jpg_s200x200&_nc_cat=101&ccb=1-7&_nc_sid=7206a8&_nc_ohc=4bDCDvgAqlQAX_WVN0r&_nc_ht=scontent.fsgn2-4.fna&oh=00_AfCOGYQk6oGziJhhzGoxCxJr4aP4n87-CWWUqg_yePyHgw&oe=64EEC02C',
+    image: dinhKhang,
   },
   {
     testimonial:
@@ -224,8 +227,7 @@ const testimonials = [
     name: 'Nguyễn Tuấn Thành',
     designation: 'Thành viên',
     company: 'Adventures Team',
-    image:
-      'https://scontent.fsgn2-9.fna.fbcdn.net/v/t39.30808-1/311011200_847241399971915_8298401029764434529_n.jpg?stp=dst-jpg_p200x200&_nc_cat=105&ccb=1-7&_nc_sid=7206a8&_nc_ohc=6gjcdZbUMFMAX_niTV3&_nc_oc=AQkULRIYeZpiWpmUEt--1TmJp8So9DcAnAxUHSYmFy2o-a9GLOpeLrMXu_MzqxlMRyM&_nc_ht=scontent.fsgn2-9.fna&oh=00_AfDvRQn7gw6gzDKNiQWSu7z5MD1pcSPq5NDx7YUlX2GrDg&oe=64EE9111',
+    image: tuanThanh,
   },
   {
     testimonial:
@@ -233,8 +235,7 @@ const testimonials = [
     name: 'Lê Văn Trung',
     designation: 'Thành viên',
     company: 'Adventures Team',
-    image:
-      'https://scontent.fsgn2-9.fna.fbcdn.net/v/t39.30808-6/357724672_3170092003283502_7185474822923379824_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=8Lkr3bUulDQAX8PDihD&_nc_ht=scontent.fsgn2-9.fna&oh=00_AfCEe8bItSpJS8DjWDlp9aAK5c4O-6pApJW0Qpno0YHxvA&oe=64EF8303',
+    image: vanTrung,
   },
   {
     testimonial:
@@ -242,8 +243,7 @@ const testimonials = [
     name: 'Ngô Chí Bảo',
     designation: 'Thành viên',
     company: 'Adventures Team',
-    image:
-      'https://scontent.fsgn2-6.fna.fbcdn.net/v/t39.30808-6/325955881_479295167706001_6547223433003633623_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=PXmdNQ2SolcAX_Us4S4&_nc_oc=AQmpLg2nJh-QeiRXO-EAdNVxWJle_QqXuxR_Lhw1Y_wK_4RqR9920XxTjXC3qSuKuuU&_nc_ht=scontent.fsgn2-6.fna&oh=00_AfDrIKeGn9IQ3uEN3g0q58v6FGI1ryNGIH4nX1ONSHDQOA&oe=64EE452B',
+    image: chiBao,
   },
 ]
 

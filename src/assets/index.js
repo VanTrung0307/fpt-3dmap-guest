@@ -44,6 +44,13 @@ import MobileLogo from './MobileLogo.png'
 
 import QRCode from './QRLogo.png'
 
+import anhKiet from './member/anhkiet.jpg'
+import chiBao from './member/chibao.jpg'
+import dinhKhang from './member/dinhkhang.jpg'
+import thayHoang from './member/thayhoang.jpg'
+import tuanThanh from './member/tuanthanh.jpg'
+import vanTrung from './member/vantrung.jpg'
+
 export {
   MobileLogo,
   logo,
@@ -82,5 +89,11 @@ export {
   stylishShirt,
   iconlogo,
   loginBg,
-  QRCode
+  QRCode,
+  anhKiet,
+  chiBao,
+  dinhKhang,
+  thayHoang,
+  tuanThanh,
+  vanTrung,
 }

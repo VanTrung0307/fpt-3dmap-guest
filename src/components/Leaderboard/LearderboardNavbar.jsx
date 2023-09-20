@@ -107,7 +107,7 @@ const LearderboardNavbar = () => {
                       <ul className="space-y-3 dark:text-white">
                         <li className="font-medium">
                           <a
-                            onClick={() => navigate("account")}
+                            onClick={() => navigate("leaderboard/account")}
                             className="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-orange-500"
                           >
                             <div className="mr-3">

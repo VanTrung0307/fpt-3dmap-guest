@@ -10,6 +10,7 @@ import Feedbacks from './Feedbacks';
 import Contact from './Contact';
 import CustomButton from './CustomButton';
 import LearderboardNavbar from '../components/Leaderboard/LearderboardNavbar'
+import Timeline from './Timeline';
 
 export {
   Hero,
@@ -25,5 +26,6 @@ export {
   FPTCanvas, 
   StarsCanvas,
   CustomButton,
-  LearderboardNavbar
+  LearderboardNavbar,
+  Timeline
 }
